@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.scss';
 import { Login, Register } from "./Components/login/index";
+import Navbar from "./Components/Navbar/Navbar.jsx";
+import {BrowserRouter,Route,Link} from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props){
@@ -30,14 +32,23 @@ class App extends React.Component {
     const current = isLoginActive ? "Register" : "Login";   
     const currentActive = isLoginActive ? "login" : "register";
     return (
-      <div className="App">
+      <div>
+      <BrowserRouter>
+      <Navbar/>
+       <Route path='/signIn' render={(props)=>
+       <div className="App">
         <div className="login">
           <div className="container">
-            {isLoginActive && <Login containerRef ={ (ref) => this.current=ref}/>}
-            {!isLoginActive && <Register  containerRef ={ (ref) => this.current=ref}/>}
+            {isLoginActive && <Login {...props} containerRef ={ (ref) => this.current=ref}/>}
+            {!isLoginActive && <Register {...props} containerRef ={ (ref) => this.current=ref}/>}
           </div>
-          <RightSide current={current} containerRef={ref => this.rightSide = ref} onClick={this.changeState.bind(this)}/>
+          <RightSide  current={current} containerRef={ref => this.rightSide = ref} onClick={this.changeState.bind(this)}/>
         </div>
+      </div>
+       
+       }/>
+      
+      </BrowserRouter>
       </div>
 
     );
