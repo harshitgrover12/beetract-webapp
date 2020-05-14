@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles,StylesProvider } from "@material-ui/core/styles";
 import deepPurple from '@material-ui/core/colors/deepPurple';
+import { Form,FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import './Navbar.css';
 
         const styles = theme => ({
@@ -47,17 +48,22 @@ class Navbar extends Component {
             edge="start"
             className={classes.menuButton}>
           
-            What i get
-          </Button>
-          <Button variant="contained"
-            edge="start"
-            className={classes.menuButton}>
-          
             Clients
           </Button>
           <Typography className={classes.title} variant="h5" noWrap>
            Bee-Tract
           </Typography>
+
+          <Form inline>
+          <FormControl type="text" placeholder="Search.." className="search-bar" />
+          <Button variant="contained"
+            edge="start"
+            className={classes.menuButton} style={{marginTop: 0}}>
+          
+            <i className="fa fa-search" style={{ fontSize: 35  }}></i>
+          </Button>
+          </Form>
+
           <Button variant="contained" edge="end"  className={classes.menuButton}>
             About
           </Button>
