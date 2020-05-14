@@ -34,6 +34,7 @@ import './Navbar.css';
     alignSelf: 'flex-end',
     width:280,
     backgroundColor:'white',
+    right:440
     
     
   }
@@ -62,7 +63,7 @@ class Navbar extends Component {
           <Typography className={classes.title} variant="h5" noWrap>
            Bee-Tract
           </Typography>
-          <TextField className={classes.search} id="filled-search" label="Search field" type="search" variant="filled" />
+          <TextField className={classes.search} id="filled-search" label="Search field" type="search" variant="filled"edge="center" />
           <Button variant="contained" edge="end"  className={classes.menuButton}>
             About
           </Button>
