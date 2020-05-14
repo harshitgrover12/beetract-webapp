@@ -19,16 +19,25 @@ import './Navbar.css';
       marginRight:theme.spacing(2),
   },
   toolbar: {
-    minHeight: 100,
+    minHeight: 140,
     alignItems: 'flex-start',
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(2),
     backgroundColor:deepPurple['A700'],
   },
   title: {
-    flexGrow: 1,
+    flexGrow: 2,
     alignSelf: 'flex-end',
   },
+  search:{
+     
+    alignSelf: 'flex-end',
+    width:280,
+    backgroundColor:'white',
+    right:440
+    
+    
+  }
 });
 
 
@@ -44,10 +53,7 @@ class Navbar extends Component {
       <AppBar position="static">
         <Toolbar className={classes.toolbar}>
         <StylesProvider injectFirst> 
-          <Button variant="contained"
-            edge="start"
-            className={classes.menuButton}>
-          
+        <Button variant="contained" edge="end"  className={classes.menuButton}>
             Clients
           </Button>
           <Typography className={classes.title} variant="h5" noWrap>
@@ -68,7 +74,7 @@ class Navbar extends Component {
             About
           </Button>
           <Button variant="contained" edge="end"  className={classes.menuButton}href="/signIn">
-          signIN/signUp
+          signin/signUp
             
           </Button>
           </StylesProvider>

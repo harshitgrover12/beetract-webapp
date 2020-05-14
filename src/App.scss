@@ -26,7 +26,7 @@
 }
 
 .App-link {
-    color: #61dafb;
+    color: #6200ea;
 }
 
 @keyframes App-logo-spin {
@@ -68,7 +68,7 @@
         flex-direction: column;
         justify-content: center;
         height: 90%;
-        background-color: #3498db;
+        background-color: #6200ea;
         width: 100%;
         position: absolute;
         right: -34%;
@@ -94,7 +94,7 @@
         .text {
             font-size: 21px;
             font-weight: 500;
-            color: #fff;
+            color: #ffff;
             margin-right: 3em;
             margin-left: 3em;
         }
@@ -106,13 +106,13 @@
     font-size: 21px;
     padding: 5px 20px;
     border: 0;
-    background-color: #3498db;
+    background-color: #6200ea;
     color: #fff;
     border-radius: 3px;
     transition: all 250ms ease-in-out;
     cursor: pointer;
     &:hover {
-        background-color: #2386c8;
+        background-color: #6200ea;
     }
     &:focus {
         outline: none;
