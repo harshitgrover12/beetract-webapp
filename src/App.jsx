@@ -51,12 +51,19 @@ class App extends React.Component {
       </div>
        
        }/>
-
+  
+      <div classname="menu">
+      <h4>All About Startups</h4>
+      <Circle r={150} fill={{color:'#2409ba'}} stroke={{color:'white'}} strokeWidth={25}  />
+      <h4>Market Research</h4>
       <Circle r={150} fill={{color:'#2409ba'}} stroke={{color:'white'}} strokeWidth={25} />
-      <Circle r={150} fill={{color:'#2409ba'}} stroke={{color:'white'}} strokeWidth={25} />
+      <h4>Project Bidding</h4>
       <Circle r={175} fill={{color:'#2409ba'}} stroke={{color:'white'}} strokeWidth={25} />
+      <h4>Assistance</h4>
       <Circle r={150} fill={{color:'#2409ba'}} stroke={{color:'white'}} strokeWidth={25} />
+      <h4>Incubators</h4>
       <Circle r={150} fill={{color:'#2409ba'}} stroke={{color:'white'}} strokeWidth={25} />
+      </div>
       
       </BrowserRouter>
       </div>
