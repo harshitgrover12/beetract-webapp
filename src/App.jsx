@@ -1,10 +1,14 @@
+
 import React from 'react';
 import './App.scss';
 import { Login, Register } from "./Components/login/index";
 import Navbar from "./Components/Navbar/Navbar.jsx";
 import {BrowserRouter,Route,Link} from 'react-router-dom';
+import {Circle } from 'react-shapes';
 
 class App extends React.Component {
+
+
   constructor(props){
     super(props);
     this.state = {
@@ -47,6 +51,12 @@ class App extends React.Component {
       </div>
        
        }/>
+
+      <Circle r={150} fill={{color:'#2409ba'}} stroke={{color:'white'}} strokeWidth={25} />
+      <Circle r={150} fill={{color:'#2409ba'}} stroke={{color:'white'}} strokeWidth={25} />
+      <Circle r={175} fill={{color:'#2409ba'}} stroke={{color:'white'}} strokeWidth={25} />
+      <Circle r={150} fill={{color:'#2409ba'}} stroke={{color:'white'}} strokeWidth={25} />
+      <Circle r={150} fill={{color:'#2409ba'}} stroke={{color:'white'}} strokeWidth={25} />
       
       </BrowserRouter>
       </div>

@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles,StylesProvider } from "@material-ui/core/styles";
 import deepPurple from '@material-ui/core/colors/deepPurple';
-import { Form,FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { Form, FormControl} from 'react-bootstrap';
 import './Navbar.css';
 
         const styles = theme => ({
@@ -66,7 +66,7 @@ class Navbar extends Component {
             edge="start"
             className={classes.menuButton} style={{marginTop: 0}}>
           
-            <i className="fa fa-search" style={{ fontSize: 35  }}></i>
+            <i className="fa fa-search" style={{ fontSize: 35 }}></i>
           </Button>
           </Form>
 
