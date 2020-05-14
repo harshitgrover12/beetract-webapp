@@ -34,7 +34,7 @@ import './Navbar.css';
     alignSelf: 'flex-end',
     width:280,
     backgroundColor:'white',
-    right:440
+    right:460
     
     
   }

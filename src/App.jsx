@@ -3,6 +3,7 @@ import './App.scss';
 import { Login, Register } from "./Components/login/index";
 import Navbar from "./Components/Navbar/Navbar.jsx";
 import {BrowserRouter,Route,Link} from 'react-router-dom';
+import Circles from './Components/Circles/Circles';
 
 class App extends React.Component {
   constructor(props){
@@ -35,6 +36,7 @@ class App extends React.Component {
       <div>
       <BrowserRouter>
       <Navbar/>
+      <Circles/>
        <Route path='/signIn' render={(props)=>
        <div className="App">
         <div className="login">
