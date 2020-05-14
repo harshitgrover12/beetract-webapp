@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles,StylesProvider } from "@material-ui/core/styles";
 import deepPurple from '@material-ui/core/colors/deepPurple';
+import TextField from '@material-ui/core/TextField';
 import './Navbar.css';
 
         const styles = theme => ({
@@ -18,16 +19,24 @@ import './Navbar.css';
       marginRight:theme.spacing(2),
   },
   toolbar: {
-    minHeight: 100,
+    minHeight: 140,
     alignItems: 'flex-start',
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(2),
     backgroundColor:deepPurple['A700'],
   },
   title: {
-    flexGrow: 1,
+    flexGrow: 2,
     alignSelf: 'flex-end',
   },
+  search:{
+     
+    alignSelf: 'flex-end',
+    width:280,
+    backgroundColor:'white',
+    
+    
+  }
 });
 
 
@@ -53,6 +62,7 @@ class Navbar extends Component {
           <Typography className={classes.title} variant="h5" noWrap>
            Bee-Tract
           </Typography>
+          <TextField className={classes.search} id="filled-search" label="Search field" type="search" variant="filled" />
           <Button variant="contained" edge="end"  className={classes.menuButton}>
             About
           </Button>
