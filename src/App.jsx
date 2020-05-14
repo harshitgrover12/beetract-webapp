@@ -3,18 +3,19 @@ import './App.scss';
 import { Login, Register } from "./Components/login/index";
 import Navbar from "./Components/Navbar/Navbar.jsx";
 import {BrowserRouter,Route,Link} from 'react-router-dom';
-import Circles from './Components/Circles/Circles';
+import Circles from './Components/Circles/Circles'; 
+import {connect} from 'react-redux';
+import AboutStartups from './Components/aboutStartups/aboutStartups';
 
 class App extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      isLoginActive: true,
+   
     }
-  }
+  
 
   changeState() {
-    const {isLoginActive} = this.state;
+    const {isLoginActive} = this.props;
     if(isLoginActive) {
       this.rightSide.classList.remove("right");
       this.rightSide.classList.add("left");
@@ -24,19 +25,20 @@ class App extends React.Component {
       this.rightSide.classList.add("right");
     }
 
-    this.setState((prevState) => ({isLoginActive: !prevState.isLoginActive}));
+    this.props.changeLogin(!isLoginActive);
   }
 
 
   render() {
-    const { isLoginActive } = this.state;
+    const { isLoginActive } = this.props;
     const current = isLoginActive ? "Register" : "Login";   
     const currentActive = isLoginActive ? "login" : "register";
     return (
-      <div>
+      <div style={{maxWidth:'100%',height:'auto',overflow:'hidden'}}>
       <BrowserRouter>
       <Navbar/>
-      <Circles/>
+      <Route exact path='/' render={(props)=><Circles{...props} />}/>
+      <Route exact path='/aboutStartups' render={(props)=><AboutStartups{...props} />}/>
        <Route path='/signIn' render={(props)=>
        <div className="App">
         <div className="login">
@@ -67,7 +69,19 @@ const RightSide = props => {
     </div>
   );
 };
+const mapStateToProps=(state)=>{
+  return {
+    isLoginActive:state.isLoginActive
+  }
+}
+const mapDispatchToProps=(dispatch)=>{
+  return{
+    changeLogin:(isLoginActive)=>{dispatch({
+      type:'LOGIN',
+      isLoginActive:isLoginActive
+    })}
+  }
+}
 
 
-
-export default App;
+export default connect(mapStateToProps,mapDispatchToProps)(App);

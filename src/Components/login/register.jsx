@@ -1,6 +1,6 @@
 import React from "react";
 import loginImg from "../../login.svg";
-
+import './style.scss';
 export class Register extends React.Component {
     constructor(props) {
         super(props);
