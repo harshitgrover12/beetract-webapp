@@ -43,12 +43,7 @@ class Navbar extends Component {
       <AppBar position="static">
         <Toolbar className={classes.toolbar}>
         <StylesProvider injectFirst> 
-          <Button variant="contained"
-            edge="start"
-            className={classes.menuButton}>
           
-            What i get
-          </Button>
           <Button variant="contained"
             edge="start"
             className={classes.menuButton}>
@@ -62,7 +57,7 @@ class Navbar extends Component {
             About
           </Button>
           <Button variant="contained" edge="end"  className={classes.menuButton}href="/signIn">
-          signIN/signUp
+          signin/signUp
             
           </Button>
           </StylesProvider>
