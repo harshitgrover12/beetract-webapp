@@ -6,6 +6,8 @@ import Navbar from "./Components/Navbar/Navbar.jsx";
 import {BrowserRouter,Route,Link} from 'react-router-dom';
 import {Circle } from 'react-shapes';
 
+
+
 class App extends React.Component {
 
 
@@ -39,6 +41,7 @@ class App extends React.Component {
       <div>
       <BrowserRouter>
       <Navbar/>
+      
        <Route path='/signIn' render={(props)=>
        <div className="App">
         <div className="login">
@@ -51,7 +54,7 @@ class App extends React.Component {
       </div>
        
        }/>
-  
+
       <div classname="menu">
       <h4>All About Startups</h4>
       <Circle r={150} fill={{color:'#2409ba'}} stroke={{color:'white'}} strokeWidth={25}  />
