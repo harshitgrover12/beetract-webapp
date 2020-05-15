@@ -4,7 +4,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles,StylesProvider } from "@material-ui/core/styles";
-import deepPurple from '@material-ui/core/colors/deepPurple';
 import { Form, FormControl} from 'react-bootstrap';
 import './Navbar.css';
 
@@ -23,7 +22,7 @@ import './Navbar.css';
     alignItems: 'flex-start',
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(2),
-    backgroundColor:deepPurple['A700'],
+    backgroundColor: '#CC0099',
   },
   title: {
     flexGrow: 2,
