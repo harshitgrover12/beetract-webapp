@@ -1,25 +1,22 @@
-
 import React from 'react';
 import './App.scss';
 import { Login, Register } from "./Components/login/index";
 import Navbar from "./Components/Navbar/Navbar.jsx";
 import {BrowserRouter,Route,Link} from 'react-router-dom';
-import {Circle } from 'react-shapes';
-
-
+import Circles from './Components/Circles/Circles'; 
+import {connect} from 'react-redux';
+import AboutStartups from './Components/aboutStartups/aboutStartups';
+import ProjectBidding from './Components/ProjectBid/projectbidding';
 
 class App extends React.Component {
-
-
   constructor(props){
     super(props);
-    this.state = {
-      isLoginActive: true,
+   
     }
-  }
+  
 
   changeState() {
-    const {isLoginActive} = this.state;
+    const {isLoginActive} = this.props;
     if(isLoginActive) {
       this.rightSide.classList.remove("right");
       this.rightSide.classList.add("left");
@@ -29,19 +26,21 @@ class App extends React.Component {
       this.rightSide.classList.add("right");
     }
 
-    this.setState((prevState) => ({isLoginActive: !prevState.isLoginActive}));
+    this.props.changeLogin(!isLoginActive);
   }
 
 
   render() {
-    const { isLoginActive } = this.state;
+    const { isLoginActive } = this.props;
     const current = isLoginActive ? "Register" : "Login";   
     const currentActive = isLoginActive ? "login" : "register";
     return (
-      <div>
+      <div style={{maxWidth:'100%',height:'auto',overflow:'hidden'}}>
       <BrowserRouter>
       <Navbar/>
-      
+      <Route exact path='/' render={(props)=><Circles{...props} />}/>
+      <Route exact path='/aboutStartups' render={(props)=><AboutStartups{...props} />}/>
+      <Route exact path='/projectbidding' render={(props)=><ProjectBidding{...props} />}/>
        <Route path='/signIn' render={(props)=>
        <div className="App">
         <div className="login">
@@ -54,19 +53,6 @@ class App extends React.Component {
       </div>
        
        }/>
-
-      <div classname="menu">
-      <h4>All About Startups</h4>
-      <Circle r={150} fill={{color:'#2409ba'}} stroke={{color:'white'}} strokeWidth={25}  />
-      <h4>Market Research</h4>
-      <Circle r={150} fill={{color:'#2409ba'}} stroke={{color:'white'}} strokeWidth={25} />
-      <h4>Project Bidding</h4>
-      <Circle r={175} fill={{color:'#2409ba'}} stroke={{color:'white'}} strokeWidth={25} />
-      <h4>Assistance</h4>
-      <Circle r={150} fill={{color:'#2409ba'}} stroke={{color:'white'}} strokeWidth={25} />
-      <h4>Incubators</h4>
-      <Circle r={150} fill={{color:'#2409ba'}} stroke={{color:'white'}} strokeWidth={25} />
-      </div>
       
       </BrowserRouter>
       </div>
@@ -85,7 +71,19 @@ const RightSide = props => {
     </div>
   );
 };
+const mapStateToProps=(state)=>{
+  return {
+    isLoginActive:state.isLoginActive
+  }
+}
+const mapDispatchToProps=(dispatch)=>{
+  return{
+    changeLogin:(isLoginActive)=>{dispatch({
+      type:'LOGIN',
+      isLoginActive:isLoginActive
+    })}
+  }
+}
 
 
-
-export default App;
+export default connect(mapStateToProps,mapDispatchToProps)(App);

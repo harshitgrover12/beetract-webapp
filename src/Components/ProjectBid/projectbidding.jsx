@@ -9,10 +9,6 @@ const styles = theme=> ({
     root: {
         flexGrow: 1,
       },
-      menuButton: {
-        marginRight: theme.spacing(2),
-       
-      },
       menuButton1:{
         marginRight:theme.spacing(2),
         alignItems: 'flex-end',
@@ -38,7 +34,7 @@ const styles = theme=> ({
 
         return(
             <div className={classes.root}>
-            <AppBar position="static">
+              <AppBar position="static">
               <Toolbar className={classes.toolbar}>
               <StylesProvider injectFirst> 
               <Typography className={classes.title} variant="h5" noWrap>
