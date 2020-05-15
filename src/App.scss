@@ -26,7 +26,7 @@
 }
 
 .App-link {
-    color: #6200ea;
+    color: #CC0099;
 }
 
 @keyframes App-logo-spin {
@@ -68,7 +68,7 @@
         flex-direction: column;
         justify-content: center;
         height: 96%;
-        background-color: #6200ea;
+        background-color: #CC0099;
         width: 100%;
         position: absolute;
         right: -34%;
@@ -106,13 +106,13 @@
     font-size: 21px;
     padding: 5px 20px;
     border: 0;
-    background-color: #6200ea;
+    background-color: #CC0099;
     color: #fff;
     border-radius: 3px;
     transition: all 250ms ease-in-out;
     cursor: pointer;
     &:hover {
-        background-color: #6200ea;
+        background-color: #CC0099;
     }
     &:focus {
         outline: none;

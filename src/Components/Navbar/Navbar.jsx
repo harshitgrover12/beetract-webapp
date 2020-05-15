@@ -23,7 +23,7 @@ import './Navbar.css';
     alignItems: 'flex-start',
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(2),
-    backgroundColor:deepPurple['A700'],
+    backgroundColor:'#CC0099',
   },
   title: {
     flexGrow: 2,
