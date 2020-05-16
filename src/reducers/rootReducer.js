@@ -1,10 +1,11 @@
 const initState={
     isLoginActive:true,
     curStatus:'home',
-    name:'',
+    first_name:'',
+    last_name:'',
     email:'',
     password:'',
-   
+    userRole:'',
 }
 const rootReducer=(state=initState,action)=>{
     if(action.type==='LOGIN')
@@ -16,7 +17,7 @@ const rootReducer=(state=initState,action)=>{
     }
     if(action.type==='STATUS')
     {
-        console.log(action.curStatus);
+        
         return{
             ...state,
             curStatus:action.curStatus
@@ -24,31 +25,36 @@ const rootReducer=(state=initState,action)=>{
     }
     if(action.type==='USER')
     {
-        console.log(action.name);
-        console.log(action.email);
-        console.log(action.password);
+        
+        
+        
         return{
             ...state,
-            name:action.name,
+            first_name:action.first_name,
+            last_name:action.last_name,
             email:action.email,
-            password:action.password
+            password:action.password,
+            userRole:action.userRole
+            
         }
+     
         
     }
     if(action.type==='logon')
     {
         
-        console.log(action.email)
+        
         return{
             ...state,
             emailLogin:action.email,
             passwordLogin:action.password
         }
         
+        
     }
     
 
-    
+    console.log(state);
     return state;
 }
 export default rootReducer;
