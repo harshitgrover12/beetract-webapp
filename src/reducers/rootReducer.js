@@ -1,5 +1,6 @@
 const initState={
-    isLoginActive:true
+    isLoginActive:true,
+    curStatus:'home',
 }
 const rootReducer=(state=initState,action)=>{
     if(action.type==='LOGIN')
@@ -7,6 +8,14 @@ const rootReducer=(state=initState,action)=>{
         return {
             ...state,
             isLoginActive:action.isLoginActive
+        }
+    }
+    if(action.type==='STATUS')
+    {
+        console.log(action.curStatus);
+        return{
+            ...state,
+            curStatus:action.curStatus
         }
     }
     return state;

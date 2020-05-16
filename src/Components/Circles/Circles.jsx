@@ -1,9 +1,14 @@
 import React,{Component} from 'react';
 import Button from '@material-ui/core/Button';
 import {Circle } from 'react-shapes';
-import img from './hello.png';
-import './Circles.css'
+import './Circles.css';
+import {connect} from 'react-redux';
 class Circles extends Component{
+    
+    handleClick=(curStatus)=>{
+        
+        this.props.changeStatus(curStatus);
+    }
     render(){
         return(
             <div>   
@@ -40,12 +45,14 @@ class Circles extends Component{
                  Assistance
                 </text>
         </svg>
+        <a href="/projectBidding" >
        <svg width="240" height="240" >
             <circle cx="120" cy="120" r="120"  fill="#262626" />
                 <text x="120" y="120" text-anchor="middle" fill="white"style={{fontSize:25}}>
                  Project Bidding
                 </text>
         </svg>
+        </a>
     </div>
     </div>
       
@@ -57,4 +64,16 @@ class Circles extends Component{
         )
     }
 }
-export default Circles;
+const mapStateToProps=(state)=>{
+  return {
+   curStatus:state.curStatus
+  }
+}
+const mapDispatchToProps=(dispatch)=>{
+  return{
+    changeStatus:(curStatus)=>{dispatch({
+      type:'STATUS',
+      curStatus:curStatus
+    })}
+  }}
+export default connect(mapStateToProps,mapDispatchToProps)(Circles);

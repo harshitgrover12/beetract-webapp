@@ -7,7 +7,8 @@ import { withStyles,StylesProvider } from "@material-ui/core/styles";
 import deepPurple from '@material-ui/core/colors/deepPurple';
 import TextField from '@material-ui/core/TextField';
 import './Navbar.css';
-
+import {connect} from 'react-redux';
+import {compose} from 'redux';
         const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -46,15 +47,19 @@ import './Navbar.css';
 class Navbar extends Component {
     render(){
 
-  const {classes} = this.props
-
+  const {classes} = this.props;
+  const {curStatus}=this.props;
+  
   return (
+
     <div className={classes.root}>
+    {curStatus==='home'?(
+       <div>
       <AppBar position="static">
         <Toolbar className={classes.toolbar}>
         <StylesProvider injectFirst> 
           
-          <Button variant="contained"
+            <Button variant="contained"
             edge="start"
             className={classes.menuButton}>
           
@@ -63,18 +68,76 @@ class Navbar extends Component {
           <Typography className={classes.title} variant="h5" noWrap>
            Bee-Tract
           </Typography>
+          
+           
+          
           <TextField className={classes.search} id="filled-search" label="Search field" type="search" variant="filled"edge="center" />
           <Button variant="contained" edge="end"  className={classes.menuButton}>
             About
           </Button>
           <Button variant="contained" edge="end"  className={classes.menuButton}href="/signIn">
-          signin/signUp
+      signin/signUp
             
           </Button>
           </StylesProvider>
         </Toolbar>
-      </AppBar>
+      </AppBar></div>):(<div/>)
+          }
+          {
+              curStatus==='bidding'?(
+                 <div className={classes.root}>
+              <AppBar position="static">
+              <Toolbar className={classes.toolbar}>
+              <StylesProvider injectFirst> 
+              <Typography className={classes.title} variant="h5" noWrap>
+                Bee-Tract
+              </Typography>
+              <Button variant="contained" edge="end"  className={classes.menuButton1}>
+                    Dashboard
+                </Button>
+              </StylesProvider>
+                </Toolbar>
+
+                <Toolbar className={classes.toolbar}>
+              <StylesProvider injectFirst> 
+              <Button variant="contained" edge="end"  className={classes.menuButton1}>
+                    Post a Project
+                </Button>
+
+                <Button variant="contained" edge="end"  className={classes.menuButton1}>
+                    View Bids On My Project
+                </Button>
+
+                <Button variant="contained" edge="end"  className={classes.menuButton1}>
+                    Bid On a Project
+                </Button>
+              </StylesProvider>
+                </Toolbar>
+            </AppBar>
+            </div>
+                 ):(<div/>)
+          }
+          
     </div>
   );}
+  
 }
-export default  withStyles(styles, { withTheme: true }) (Navbar);
+const mapStateToProps=(state)=>{
+  
+  return {
+   curStatus:state.curStatus
+  }
+}
+const mapDispatchToProps=(dispatch)=>{
+  return{
+    changeStatus:(curStatus)=>{dispatch({
+      type:'STATUS',
+      curStatus:curStatus
+    })}
+  }}
+export default compose(
+  withStyles(styles, { withTheme: true })
+  ,
+  
+  connect(mapStateToProps,mapDispatchToProps),
+)(Navbar);

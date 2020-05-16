@@ -6,7 +6,7 @@ import {BrowserRouter,Route,Link} from 'react-router-dom';
 import Circles from './Components/Circles/Circles'; 
 import {connect} from 'react-redux';
 import AboutStartups from './Components/aboutStartups/aboutStartups';
-
+import ProjectBidding from './Components/ProjectBidding/ProjectBidding'
 class App extends React.Component {
   constructor(props){
     super(props);
@@ -27,6 +27,7 @@ class App extends React.Component {
 
     this.props.changeLogin(!isLoginActive);
   }
+  
 
 
   render() {
@@ -37,8 +38,9 @@ class App extends React.Component {
       <div style={{maxWidth:'100%',height:'auto',overflow:'hidden'}}>
       <BrowserRouter>
       <Navbar/>
-      <Route exact path='/' render={(props)=><Circles{...props} />}/>
+      <Route exact path='/' render={(props)=><Circles{...props}  />}/>
       <Route exact path='/aboutStartups' render={(props)=><AboutStartups{...props} />}/>
+       <Route exact path='/projectBidding' render={(props)=><ProjectBidding{...props} />}/>
        <Route path='/signIn' render={(props)=>
        <div className="App">
         <div className="login">
@@ -71,7 +73,8 @@ const RightSide = props => {
 };
 const mapStateToProps=(state)=>{
   return {
-    isLoginActive:state.isLoginActive
+    isLoginActive:state.isLoginActive,
+    curStatus:state.curState
   }
 }
 const mapDispatchToProps=(dispatch)=>{
@@ -79,7 +82,13 @@ const mapDispatchToProps=(dispatch)=>{
     changeLogin:(isLoginActive)=>{dispatch({
       type:'LOGIN',
       isLoginActive:isLoginActive
-    })}
+    })},
+    changeStatus:(curStatus)=>{
+      dispatch({
+        type:'STATUS',
+        curStatus:curStatus
+      })
+    }
   }
 }
 
