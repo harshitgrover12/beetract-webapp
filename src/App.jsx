@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import Login from './Components/login/Login.jsx'
+import Login from './Components/login/login.jsx'
 import Register from './Components/login/register'
 import Navbar from "./Components/Navbar/Navbar.jsx";
 import {BrowserRouter,Route,Link} from 'react-router-dom';
