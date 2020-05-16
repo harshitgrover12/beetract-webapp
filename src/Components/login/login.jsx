@@ -2,19 +2,31 @@ import React,{Component} from "react";
 import loginImg from "../../login.svg";
 import './style.scss';
 import {connect} from 'react-redux';
+import axios from 'axios';
  
  class Login extends Component {
     constructor(props) {
         super(props);
+        this.state={
+          email:'',
+          password:''
+        }
+    }
+    handleChange=(e)=>{
+      
+        this.setState({
+          [e.target.id]:e.target.value
+        })
+      
     }
     handleSubmit=(e)=>{
     e.preventDefault();
-    console.log(this.email.value);
-    console.log(this.password.value);
-   
-    this.props.changeLoginEmail(this.email.value);
-    this.props.changeLoginPassword(this.password.value);
-     console.log(this.props);
+    axios.post('https://beetract.herokuapp.com/auth/login/',{
+      email:this.state.email,
+      password:this.state.password
+    }).then(({data})=>console.log(data));
+    
+    
     }
     render() {
         return (<div className="base-container" ref={this.props.containerRef}>
@@ -26,11 +38,11 @@ import {connect} from 'react-redux';
                 <div className="form">
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
-                        <input type="text" name="email" placeholder="Email"ref={(input)=>this.email=input}/>
+                        <input id="email"type="text" name="email" placeholder="Email"ref={(input)=>this.email=input}onChange={this.handleChange}/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="password">Password</label>
-                        <input type="password" name="password" placeholder="password"ref={(input)=>this.password=input}/>
+                        <input id="password"type="password" name="password" placeholder="password"ref={(input)=>this.password=input}onChange={this.handleChange}/>
                     </div>
                 </div>
             </div>
