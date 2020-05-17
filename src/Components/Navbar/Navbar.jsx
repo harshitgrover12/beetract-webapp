@@ -49,6 +49,10 @@ class Navbar extends Component {
     super(props);
     
   }
+  handleClick=()=>{
+    this.props.changeCurStatus(false);
+    window.location.replace("/");
+  }
 
     render(){
 
@@ -101,8 +105,8 @@ class Navbar extends Component {
               <Typography className={classes.title} variant="h5" noWrap>
                 Bee-Tract
               </Typography>
-              <Button variant="contained" edge="end"  className={classes.menuButton1}>
-                    Dashboard
+              <Button variant="contained" edge="end" onClick={this.handleClick} className={classes.menuButton1}>
+                    SignOut
                 </Button>
               </StylesProvider>
                 </Toolbar>
