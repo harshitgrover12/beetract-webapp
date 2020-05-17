@@ -7,10 +7,7 @@ import axios from 'axios';
  class Login extends Component {
     constructor(props) {
         super(props);
-        this.state={
-          email:'',
-          password:''
-        }
+        
     }
     handleChange=(e)=>{
       
@@ -24,7 +21,14 @@ import axios from 'axios';
     axios.post('https://beetract.herokuapp.com/auth/login/',{
       email:this.state.email,
       password:this.state.password
-    }).then(({data})=>console.log(data));
+    }).then(({data})=>{console.log(data)
+   window.location.replace("/business");
+    this.props.changeCurStatus(true);
+      }
+    )
+       
+     
+   
     
     
     }
@@ -52,23 +56,27 @@ import axios from 'axios';
         </div>)
     }
 }
-const mapStateToProps=(state)=>{
+
+
+
+const mapStateToProps = state => {
   return {
-   
-   email:state.email,
-   password:state.password
-  }
-}
-const mapDispatchToProps=(dispatch)=>{
-  return{
-    
-    changeLoginEmail:(email)=>{dispatch({
-      type:'logon',
-      email:email
-    })},
-    changeLoginPassword:(password)=>{dispatch({
-      type:'logon',
-      password:password
-    })}
-  }}
-export default connect(mapStateToProps,mapDispatchToProps)(Login);
+     isLoginActive:state.isLoginActive,
+    curStatus:state.curStatus
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changeLogin: (isLoginActive) => dispatch({
+      type:'LOGIN',
+      isLoginActive:isLoginActive
+    }),
+    changeCurStatus:(curStatus)=>dispatch({
+      type:'STATUS',
+      curStatus:curStatus
+    })
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps) (Login);

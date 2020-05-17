@@ -45,14 +45,14 @@ class Circles extends Component{
                  Assistance
                 </text>
         </svg>
-        <a href="/projectBidding" >
+     
        <svg width="240" height="240" >
             <circle cx="120" cy="120" r="120"  fill="#262626" />
                 <text x="120" y="120" text-anchor="middle" fill="white"style={{fontSize:25}}>
                  Project Bidding
                 </text>
         </svg>
-        </a>
+        
     </div>
     </div>
       
@@ -64,16 +64,5 @@ class Circles extends Component{
         )
     }
 }
-const mapStateToProps=(state)=>{
-  return {
-   curStatus:state.curStatus
-  }
-}
-const mapDispatchToProps=(dispatch)=>{
-  return{
-    changeStatus:(curStatus)=>{dispatch({
-      type:'STATUS',
-      curStatus:curStatus
-    })}
-  }}
-export default connect(mapStateToProps,mapDispatchToProps)(Circles);
+
+export default Circles;

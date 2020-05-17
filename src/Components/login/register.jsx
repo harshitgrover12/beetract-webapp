@@ -91,7 +91,7 @@ import axios from 'axios';
         is_incubator:is_incubator        
   }).then(({data})=>console.log(data)).then((response)=>console.log(response)).catch((error)=>alert(error));
 
-    
+    this.props.changeLogin(!this.props.isLoginActive);
     
 
 }
@@ -137,36 +137,27 @@ import axios from 'axios';
         </div>
     }
 }
-const mapStateToProps=(state)=>{
+
+
+
+const mapStateToProps = state => {
   return {
-   first_name:state.first_name,
-   last_name:state.last_name,
-   email:state.email,
-   password:state.password,
-   userRole:state.userRole,
-  }
-}
-const mapDispatchToProps=(dispatch)=>{
-  return{
-    changeName:(first_name)=>{dispatch({
-      type:'USER',
-      first_name:first_name
-    })},
-    changeLastName:(last_name)=>{dispatch({
-      type:'USER',
-      last_name:last_name
-    })},
-    changeEmail:(email)=>{dispatch({
-      type:'USER',
-      email:email
-    })},
-    changePassword:(password)=>{dispatch({
-      type:'USER',
-      password:password
-    })},
-    changeUserRole:(UserRole)=>{dispatch({
-      type:'USER',
-      userRole:UserRole
-    })}
-  }}
-export default connect(mapStateToProps,mapDispatchToProps)(Register);
+     isLoginActive:state.isLoginActive,
+    curStatus:state.curStatus
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changeLogin: (isLoginActive) => dispatch({
+      type:'LOGIN',
+      isLoginActive:isLoginActive
+    }),
+    changeCurStatus:(curStatus)=>dispatch({
+      type:'STATUS',
+      curStatus:curStatus
+    })
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)  (Register);

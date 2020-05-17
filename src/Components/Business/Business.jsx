@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
 
- class ProjectBidding extends Component {
+ class Business extends Component {
      constructor(props){
          super(props);
      }
      componentDidMount=()=>{
-         this.props.changeStatus('bidding');
+         this.props.changeStatus(true);
      }
     render() {
         return (
@@ -28,4 +28,4 @@ const mapDispatchToProps=(dispatch)=>{
       curStatus:curStatus
     })}
   }}
-export default connect(mapStateToProps,mapDispatchToProps)(ProjectBidding);
+export default connect(mapStateToProps,mapDispatchToProps)(Business);

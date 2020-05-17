@@ -45,6 +45,11 @@ import {compose} from 'redux';
 
 
 class Navbar extends Component {
+  constructor(props){
+    super(props);
+    
+  }
+
     render(){
 
   const {classes} = this.props;
@@ -53,7 +58,7 @@ class Navbar extends Component {
   return (
 
     <div className={classes.root}>
-    {curStatus==='home'?(
+    {!curStatus?(
        <div>
       <AppBar position="static">
         <Toolbar className={classes.toolbar}>
@@ -75,16 +80,20 @@ class Navbar extends Component {
           <Button variant="contained" edge="end"  className={classes.menuButton}>
             About
           </Button>
+          
           <Button variant="contained" edge="end"  className={classes.menuButton}href="/signIn">
       signin/signUp
             
           </Button>
+     
+            
+          
           </StylesProvider>
         </Toolbar>
       </AppBar></div>):(<div/>)
           }
           {
-              curStatus==='bidding'?(
+             curStatus?(
                  <div className={classes.root}>
               <AppBar position="static">
               <Toolbar className={classes.toolbar}>
@@ -122,19 +131,25 @@ class Navbar extends Component {
   );}
   
 }
-const mapStateToProps=(state)=>{
-  
+const mapStateToProps = state => {
   return {
-   curStatus:state.curStatus
-  }
-}
-const mapDispatchToProps=(dispatch)=>{
-  return{
-    changeStatus:(curStatus)=>{dispatch({
+     isLoginActive:state.isLoginActive,
+    curStatus:state.curStatus
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changeLogin: (isLoginActive) => dispatch({
+      type:'LOGIN',
+      isLoginActive:isLoginActive
+    }),
+    changeCurStatus:(curStatus)=>dispatch({
       type:'STATUS',
       curStatus:curStatus
-    })}
-  }}
+    })
+  };
+};
 export default compose(
   withStyles(styles, { withTheme: true })
   ,
