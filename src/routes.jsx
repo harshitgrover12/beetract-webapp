@@ -6,6 +6,7 @@ import {BrowserRouter,Route,Link} from 'react-router-dom';
 import Circles from './Components/Circles/Circles'; 
 import AboutStartups from './Components/aboutStartups/aboutStartups';
 import Business from './Components/Business/Business';
+import ProjectForm from './Components/ProjectPost/ProjectForm'
 
 class Routes extends Component{
     constructor(props){
@@ -51,6 +52,7 @@ class Routes extends Component{
       <Route exact path='/' render={(props)=><Circles{...this.props}  />}/>
       <Route exact path='/aboutStartups' render={(props)=><AboutStartups{...this.props} />}/>
        <Route exact path='/business' render={(props)=><Business{...this.props} />}/>
+       <Route exact path='/business/postProject'render={(props)=><ProjectForm{...this.props}/>}/>
        <Route path='/signIn' render={(props)=>
        <div className="App">
         <div className="login">

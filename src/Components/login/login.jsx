@@ -22,8 +22,9 @@ import axios from 'axios';
       email:this.state.email,
       password:this.state.password
     }).then(({data})=>{console.log(data)
-   window.location.replace("/business");
     this.props.changeCurStatus(true);
+   window.location.replace("/business");
+    
       }
     )
        

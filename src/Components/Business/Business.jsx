@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
          super(props);
      }
      componentDidMount=()=>{
-         this.props.changeStatus(true);
+         this.props.changeCurStatus(true);
      }
     render() {
         return (

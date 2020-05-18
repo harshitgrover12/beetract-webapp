@@ -19,6 +19,19 @@ import {compose} from 'redux';
   menuButton1:{
       marginRight:theme.spacing(2),
   },
+   menuButton2: {
+    backgroundColor: '#CC0099',
+    display: 'inline-block',
+    marginRight: theme.spacing(8),
+    fontSize: 15,
+
+  },
+  toolbar1: {
+    minHeight: 150,
+    alignItems: 'center',
+    backgroundColor: 'white',
+    
+  },
   toolbar: {
     minHeight: 140,
     alignItems: 'flex-start',
@@ -98,34 +111,59 @@ class Navbar extends Component {
           }
           {
              curStatus?(
-                 <div className={classes.root}>
+                       <div className={classes.root}>
               <AppBar position="static">
               <Toolbar className={classes.toolbar}>
               <StylesProvider injectFirst> 
+              <Button variant="contained"
+              edge="start"
+              size="medium"
+              className={classes.menuButton}>
+          
+              Clients
+              </Button>
+
               <Typography className={classes.title} variant="h5" noWrap>
                 Bee-Tract
               </Typography>
-              <Button variant="contained" edge="end" onClick={this.handleClick} className={classes.menuButton1}>
-                    SignOut
+              <TextField className={classes.search} id="filled-search" label="Search field" type="search" variant="filled"edge="center" />
+              <Button variant="contained"
+              edge="start"
+              size="medium"
+              className={classes.menuButton}>
+          
+              About
+              </Button>
+              <Button variant="contained"
+              edge="start"
+              size="medium"
+              className={classes.menuButton}>
+          
+              Profile
+              </Button>
+              <Button variant="contained" edge="end" size="medium" onClick={this.handleClick} className={classes.menuButton1}onClick={this.handleClick}>
+                  SignOut
                 </Button>
               </StylesProvider>
                 </Toolbar>
-
-                <Toolbar className={classes.toolbar}>
-              <StylesProvider injectFirst> 
-              <Button variant="contained" edge="end"  className={classes.menuButton1}>
+              
+                <Toolbar className={classes.toolbar1} boxShadow={0}>
+                <StylesProvider injectFirst> 
+               
+              <Button variant="contained" edge="start" size="large"  className={classes.menuButton2} href="/business/postProject">
                     Post a Project
                 </Button>
 
-                <Button variant="contained" edge="end"  className={classes.menuButton1}>
+                <Button variant="contained" edge="end"  size="large" className={classes.menuButton2}>
                     View Bids On My Project
                 </Button>
 
-                <Button variant="contained" edge="end"  className={classes.menuButton1}>
+                <Button variant="contained" edge="end" size="large" className={classes.menuButton2}>
                     Bid On a Project
                 </Button>
-              </StylesProvider>
+                </StylesProvider>
                 </Toolbar>
+             
             </AppBar>
             </div>
                  ):(<div/>)
