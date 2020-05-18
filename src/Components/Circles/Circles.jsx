@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import Button from '@material-ui/core/Button';
 import {Circle } from 'react-shapes';
-import './Circles.css';
+import './Circles.scss';
 import {connect} from 'react-redux';
 class Circles extends Component{
     
