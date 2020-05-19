@@ -154,11 +154,11 @@ class Navbar extends Component {
                     Post a Project
                 </Button>
 
-                <Button variant="contained" edge="end"  size="large" className={classes.menuButton2}>
+                <Button variant="contained" edge="end"  size="large" className={classes.menuButton2}href="/business/viewProject">
                     View Bids On My Project
                 </Button>
 
-                <Button variant="contained" edge="end" size="large" className={classes.menuButton2}>
+                <Button variant="contained" edge="end" size="large" className={classes.menuButton2}href="/business/bidProject">
                     Bid On a Project
                 </Button>
                 </StylesProvider>

@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import './App.scss';
 import Routes from './routes';
 import {connect} from 'react-redux';
+import Navbar from "./Components/Navbar/Navbar.jsx";
 class App extends Component {
   constructor(props){
     super(props);
@@ -9,6 +10,7 @@ class App extends Component {
   render(){
     return(
       <div>
+      <Navbar {...this.props}/>
       <Routes{...this.props}/>
       </div>
     )

@@ -6,7 +6,10 @@ import {BrowserRouter,Route,Link} from 'react-router-dom';
 import Circles from './Components/Circles/Circles'; 
 import AboutStartups from './Components/aboutStartups/aboutStartups';
 import Business from './Components/Business/Business';
-import ProjectForm from './Components/ProjectPost/ProjectForm'
+import ProjectForm from './Components/ProjectPost/ProjectForm';
+import ViewForm from './Components/ViewForm/ViewForm';
+import ProjectBid from './Components/ProjectPost/ProjectBid';
+
 
 class Routes extends Component{
     constructor(props){
@@ -48,11 +51,13 @@ class Routes extends Component{
       <div style={{maxWidth:'100%',height:'auto',overflow:'hidden'}}>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <BrowserRouter>
-      <Navbar {...this.props}/>
+      
       <Route exact path='/' render={(props)=><Circles{...this.props}  />}/>
       <Route exact path='/aboutStartups' render={(props)=><AboutStartups{...this.props} />}/>
        <Route exact path='/business' render={(props)=><Business{...this.props} />}/>
        <Route exact path='/business/postProject'render={(props)=><ProjectForm{...this.props}/>}/>
+       <Route exact path='/business/viewProject' render={(props)=><ViewForm{...this.props}/>}/>
+        <Route exact path='/business/bidProject' render={(props)=><ProjectBid{...this.props}/>}/>
        <Route path='/signIn' render={(props)=>
        <div className="App">
         <div className="login">

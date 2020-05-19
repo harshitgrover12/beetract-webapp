@@ -1,0 +1,22 @@
+@import 'global';
+.SecondExample {
+    width: 600px;
+    .Project {
+        position: relative;
+        height: 500px;
+        overflow: hidden;
+        padding: 20px;
+        .h1 {
+            color: black;
+        }
+        .CheckButton {
+            color: white;
+            font-size: 12px;
+            border: 3px solid white;
+            text-transform: capitalize;
+            background-color: #000000;
+            left: 222px;
+            height: 50px;
+        }
+    }
+}

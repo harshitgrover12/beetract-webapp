@@ -26,7 +26,7 @@ import axios from 'axios';
    window.location.replace("/business");
     
       }
-    )
+    ).catch(error=>alert(error));
        
      
    
