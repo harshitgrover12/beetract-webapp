@@ -1,13 +1,13 @@
 import React from 'react';
-import SecondExample from './SecondExample'
+import MyProjectsExample from './SecondExample'
 
-const App = () => (
+const App = (props) => (
     <div style={{padding: "40px 100px"}}>
         
        
         
         
-        <SecondExample/>
+        <MyProjectsExample{...props}/>
     </div>
 );
 

@@ -23,7 +23,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
      isLoginActive:state.isLoginActive,
-    curStatus:state.curStatus
+    curStatus:state.curStatus,
+    carousalType:state.carousalType
   };
 };
 
@@ -36,6 +37,10 @@ const mapDispatchToProps = dispatch => {
     changeCurStatus:(curStatus)=>dispatch({
       type:'STATUS',
       curStatus:curStatus
+    }),
+    changeCarousalType:(carousalType)=>dispatch({
+      type:'CAROUSAL',
+      carousalType:carousalType
     })
   };
 };

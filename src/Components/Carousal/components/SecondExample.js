@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Component} from 'react';
 import Carousel from 'react-material-ui-carousel';
 import autoBind from 'auto-bind';
 import {
@@ -17,7 +17,12 @@ import "../style/SecondExample.scss"
 
 function Project(props)
 {
+   
     return (
+            <div>
+            {
+               
+        props.carousalType==='viewBids'?(
         <Paper 
             className="Project"
             style={{
@@ -33,12 +38,46 @@ function Project(props)
             <Button className="CheckButton">
                 more details
             </Button>
+            <Button style={{top:'200px',left:'80px',backgroundColor:'#CC0099'}}className="CheckButton">
+                select
+            </Button>
+            <Button style={{top:'200px',left:'80px'}}className="CheckButton">
+                Shortlist
+            </Button>
+            <Button style={{top:'200px',left:'80px'}}className="CheckButton">
+               Decline
+            </Button>
         </Paper>
+            ):(<Paper 
+            className="Project"
+            style={{
+                backgroundColor: props.item.color, 
+                width:'1000'
+            }}
+            elevation={10}
+        >
+            <h1 style={{textAlign:'center'}}>{props.item.CompanyName}</h1>
+            <h1 style={{textAlign:'center'}}>{props.item.bidamount}</h1>
+            <h1 style={{textAlign:'center'}}>{props.item.Location}</h1>
+
+            <Button className="CheckButton">
+                more details
+            </Button>
+            <Button className="CheckButton1">
+                Details
+            </Button>
+            <Button style={{backgroundColor:'black'}}className="CheckButton1"href="/business/bidProject/bidForm">
+                Bid
+            </Button>
+        </Paper>)}
+            </div>
+        
     )
 }
 
 const items = [
     {
+        companyName:"Company Name",
         name: "Project Name",
         bidamount:'Bid Amount',
         Location:'Location',
@@ -68,12 +107,12 @@ const items = [
     }
 ]
 
-export default class MyProjectsExample extends React.Component
+ class MyProjectsExample extends Component
 {
     constructor(props)
     {
         super(props);
-
+    console.log(this.props);
         this.state = {
             autoPlay: true,
             timer: 500,
@@ -85,6 +124,9 @@ export default class MyProjectsExample extends React.Component
 
         autoBind(this);
     }
+    componentDidMount=()=>{
+        this.props.changeCurStatus(true);
+            }
 
     toggleAutoPlay()
     {
@@ -140,7 +182,7 @@ export default class MyProjectsExample extends React.Component
                 >
                     {
                         items.map( (item, index) => {
-                            return <Project item={item} key={index}/>
+                            return <Project carousalType={this.props.carousalType}item={item} key={index}/>
                         })
                     }
                 </Carousel>
@@ -153,3 +195,4 @@ export default class MyProjectsExample extends React.Component
         )
     }
 }
+export default MyProjectsExample;

@@ -9,22 +9,13 @@ import Business from './Components/Business/Business';
 import ProjectForm from './Components/ProjectPost/ProjectForm';
 import ViewForm from './Components/ViewForm/ViewForm';
 import ProjectBid from './Components/ProjectPost/ProjectBid';
-
+import MyProjectsExample from './Components/Carousal/components/App';
 
 class Routes extends Component{
     constructor(props){
         super(props);
     }
-     changeCurStatus=(curStatus)=>{
-    this.setState({
-      curStatus:curStatus
-    })
-  }
-  changeLogin=(isLoginActive)=>{
-    this.setState({
-      isLoginActive:isLoginActive
-    })
-  }
+    
   
 
   changeState() {
@@ -57,7 +48,8 @@ class Routes extends Component{
        <Route exact path='/business' render={(props)=><Business{...this.props} />}/>
        <Route exact path='/business/postProject'render={(props)=><ProjectForm{...this.props}/>}/>
        <Route exact path='/business/viewProject' render={(props)=><ViewForm{...this.props}/>}/>
-        <Route exact path='/business/bidProject' render={(props)=><ProjectBid{...this.props}/>}/>
+        <Route exact path='/business/bidProject' render={(props)=><MyProjectsExample{...this.props}/>}/>
+        <Route exact path='/business/bidProject/bidForm' render={(props)=><ProjectBid{...this.props}/>}/>
        <Route path='/signIn' render={(props)=>
        <div className="App">
         <div className="login">

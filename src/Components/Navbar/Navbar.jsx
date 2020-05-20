@@ -62,9 +62,22 @@ class Navbar extends Component {
     super(props);
     
   }
-  handleClick=()=>{
+  
+  handleClick=(e)=>{
+    e.preventDefault()
     this.props.changeCurStatus(false);
     window.location.replace("/");
+  }
+  viewBids=(e)=>{
+    e.preventDefault()
+    this.props.changeCarousalType('viewBids');
+     window.location.replace('/business/viewProject')
+  }
+  bidProject=(e)=>{
+    e.preventDefault();
+    this.props.changeCarousalType('bidProject');
+    
+    window.location.replace('/business/bidProject')
   }
 
     render(){
@@ -154,11 +167,11 @@ class Navbar extends Component {
                     Post a Project
                 </Button>
 
-                <Button variant="contained" edge="end"  size="large" className={classes.menuButton2}href="/business/viewProject">
+                <Button variant="contained" edge="end"  size="large" className={classes.menuButton2}onClick={this.viewBids}>
                     View Bids On My Project
                 </Button>
 
-                <Button variant="contained" edge="end" size="large" className={classes.menuButton2}href="/business/bidProject">
+                <Button variant="contained" edge="end" size="large" className={classes.menuButton2} onClick={this.bidProject}>
                     Bid On a Project
                 </Button>
                 </StylesProvider>
@@ -176,7 +189,8 @@ class Navbar extends Component {
 const mapStateToProps = state => {
   return {
      isLoginActive:state.isLoginActive,
-    curStatus:state.curStatus
+    curStatus:state.curStatus,
+    carousalType:state.carousalType
   };
 };
 
@@ -189,6 +203,10 @@ const mapDispatchToProps = dispatch => {
     changeCurStatus:(curStatus)=>dispatch({
       type:'STATUS',
       curStatus:curStatus
+    }),
+    changeCarousalType:(carousalType)=>dispatch({
+      type:'CAROUSAL',
+      carousalType:carousalType
     })
   };
 };

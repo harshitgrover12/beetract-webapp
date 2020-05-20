@@ -18,7 +18,8 @@ import {connect} from 'react-redux';
 }
 const mapStateToProps=(state)=>{
   return {
-   curStatus:state.curStatus
+   curStatus:state.curStatus,
+    carousalType:state.carousalType
   }
 }
 const mapDispatchToProps=(dispatch)=>{
@@ -26,6 +27,10 @@ const mapDispatchToProps=(dispatch)=>{
     changeStatus:(curStatus)=>{dispatch({
       type:'STATUS',
       curStatus:curStatus
-    })}
+    })},
+     changeCarousalType:(carousalType)=>dispatch({
+      type:'CAROUSAL',
+      carousalType:carousalType
+    })
   }}
 export default connect(mapStateToProps,mapDispatchToProps)(Business);

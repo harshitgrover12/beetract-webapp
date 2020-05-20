@@ -1,6 +1,7 @@
 const initState={
     isLoginActive:true,
     curStatus:false,
+    carousalType:''
     
 }
 const rootReducer=(state=initState,action)=>{
@@ -17,6 +18,14 @@ const rootReducer=(state=initState,action)=>{
         return{
             ...state,
             curStatus:action.curStatus
+        }
+    }
+    if(action.type==='CAROUSAL')
+    {
+        
+        return{
+            ...state,
+            carousalType:action.carousalType
         }
     }
     return state;
