@@ -1,8 +1,17 @@
-.container .row {
-    margin: 20px;
-    text-align: center;
-}
-
-.container .row img {
-    margin: 0 20px;
-}
+ .row {
+     margin: 20px;
+     text-align: center;
+ }
+ 
+ .row img {
+     margin: 0 20px;
+ }
+ 
+ .particles {
+     position: fixed;
+     top: 0;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     z-index: -1;
+ }

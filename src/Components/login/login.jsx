@@ -3,6 +3,7 @@ import loginImg from "../../login.svg";
 import './style.scss';
 import {connect} from 'react-redux';
 import axios from 'axios';
+
  
  class Login extends Component {
     constructor(props) {
@@ -34,7 +35,9 @@ import axios from 'axios';
     
     }
     render() {
-        return (<div className="base-container" ref={this.props.containerRef}>
+        return (<div >
+        <div className="base-container" ref={this.props.containerRef}>
+       
             <div className="header">Login</div>   
             <div className="content">
                 <div className="image">
@@ -43,7 +46,7 @@ import axios from 'axios';
                 <div className="form">
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
-                        <input id="email"type="text" name="email" placeholder="Email"ref={(input)=>this.email=input}onChange={this.handleChange}/>
+                        <input id="email"type="text" name="email" placeholder="Email"ref={(input)=>this.email=input}onChange={this.handleChange} style={{zIndex:99}}/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="password">Password</label>
@@ -54,6 +57,8 @@ import axios from 'axios';
             <div className="footer">
                 <button type="button" className="btn" onClick={this.handleSubmit}>Login</button>
             </div>
+            </div>
+            
         </div>)
     }
 }

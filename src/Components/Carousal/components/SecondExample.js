@@ -166,7 +166,7 @@ const items = [
     render()
     {
         return (
-            <div style={{marginTop: "50px",marginLeft:"450px",}}>
+            <div style={{marginTop: "50px",marginLeft:"90px",position:'relative'}}>
                 <h2>List of Biddings</h2>
 
                 <Carousel 

@@ -9,18 +9,25 @@ import TextField from '@material-ui/core/TextField';
 import './Navbar.css';
 import {connect} from 'react-redux';
 import {compose} from 'redux';
+
         const styles = theme => ({
   root: {
     flexGrow: 1,
+    position:'relative',
+     
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    zIndex:9999,
+    
+
+    
   },
   menuButton1:{
       marginRight:theme.spacing(2),
   },
    menuButton2: {
-    backgroundColor: '#CC0099',
+    background: 'black',
     display: 'inline-block',
     marginRight: theme.spacing(8),
     fontSize: 15,
@@ -29,15 +36,20 @@ import {compose} from 'redux';
   toolbar1: {
     minHeight: 150,
     alignItems: 'center',
-    backgroundColor: 'white',
+    background: 'linear-gradient(89deg, #FF5EDF 10%, #04C8DE 100%)',
     
   },
   toolbar: {
-    minHeight: 140,
+    minHeight:200,
     alignItems: 'flex-start',
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(2),
-    backgroundColor:'#CC0099',
+    zIndex:12,
+    
+    background: 'linear-gradient(89deg, #FF5EDF 10%, #04C8DE 100%)',
+    
+    
+    display:'flex',
   },
   title: {
     flexGrow: 2,
@@ -46,9 +58,11 @@ import {compose} from 'redux';
   search:{
      
     alignSelf: 'flex-end',
+    bottom:50,
     width:280,
     backgroundColor:'white',
-    right:460
+    right:460,
+    display:'flex',
     
     
   }
@@ -88,10 +102,13 @@ class Navbar extends Component {
   return (
 
     <div className={classes.root}>
+     
     {!curStatus?(
        <div>
       <AppBar position="static">
+      
         <Toolbar className={classes.toolbar}>
+        
         <StylesProvider injectFirst> 
           
             <Button variant="contained"
@@ -107,7 +124,7 @@ class Navbar extends Component {
            
           
           <TextField className={classes.search} id="filled-search" label="Search field" type="search" variant="filled"edge="center" />
-          <Button variant="contained" edge="end"  className={classes.menuButton}>
+          <Button variant="contained" edge="end"  className={classes.menuButton}href="/aboutStartups">
             About
           </Button>
           

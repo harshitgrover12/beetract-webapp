@@ -9,7 +9,7 @@ class ViewForm extends Component {
     }
     render() {
         return (
-            <div>
+            <div >
                 
 
 <table class="responstable">

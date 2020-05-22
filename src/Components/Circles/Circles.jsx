@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import {Circle } from 'react-shapes';
 import './Circles.scss';
 import {connect} from 'react-redux';
+
 class Circles extends Component{
     
     handleClick=(curStatus)=>{
@@ -11,9 +12,10 @@ class Circles extends Component{
     }
     render(){
         return(
-            <div>   
-            <div class="container">
-  <div class="row">  
+            <div >   
+            <div class="container" >
+            
+  <div class="row" style={{zIndex:'3'}}>  
         <a href="/aboutStartups">
         <svg width="280" height="240">
             <circle cx="120" cy="120" r="120"  fill="#262626" />

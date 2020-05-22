@@ -1,6 +1,17 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
-
+import Particles from 'react-particles-js';
+const particlesOptions={
+                particles: {
+                  number:{
+                    value:50, 
+                    density:{
+                      enable:true,
+                      value_area:500 
+                    }
+                  }
+                }
+              }
  class Business extends Component {
      constructor(props){
          super(props);
@@ -10,8 +21,8 @@ import {connect} from 'react-redux';
      }
     render() {
         return (
-            <div>
-                <h1 style={{textAlign:'center'}}>Project Bidding</h1>
+            <div >
+         
             </div>
         )
     }

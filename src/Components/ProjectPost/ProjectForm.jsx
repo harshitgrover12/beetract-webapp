@@ -5,7 +5,19 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Particles from 'react-particles-js';
 
+const particlesOptions={
+                particles: {
+                  number:{
+                    value:50, 
+                    density:{
+                      enable:true,
+                      value_area:500 
+                    }
+                  }
+                }
+              }
 
 const styles = theme=> ({
   root: {
@@ -47,7 +59,8 @@ const filestyle = {
     render() {
             const {classes} = this.props;
         return (
-            <div>
+            <div >
+            
       <Grid container className={classes.root} spacing={2}>
      <Grid item xs={12}>
         <Grid container justify="center" spacing={5}> 
