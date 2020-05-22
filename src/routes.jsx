@@ -10,19 +10,9 @@ import ProjectForm from './Components/ProjectPost/ProjectForm';
 import ViewForm from './Components/ViewForm/ViewForm';
 import ProjectBid from './Components/ProjectPost/ProjectBid';
 import MyProjectsExample from './Components/Carousal/components/App';
-import Particles from 'react-particles-js';
+import ParticleBackground from './Components/ParticlesComponent';
 
-const particlesOptions={
-                particles: {
-                  number:{
-                    value:90, 
-                    density:{
-                      enable:true,
-                      value_area:500 
-                    }
-                  }
-                }
-              }
+
 
 class Routes extends Component{
     constructor(props){
@@ -61,7 +51,10 @@ class Routes extends Component{
                
       <BrowserRouter>
        
-    
+    <div  id="lpg" >
+      <ParticleBackground  />
+      </div>
+      
       <Route exact path='/aboutStartups' render={(props)=><AboutStartups{...this.props} />}/>
        <Route  path='/business' render={(props)=><Business{...this.props} />}/>
        <Route  path='/business/postProject'render={(props)=><div><ProjectForm{...this.props}/>

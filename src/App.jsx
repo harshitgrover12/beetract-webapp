@@ -8,6 +8,7 @@ import Particles from 'react-particles-js';
 import {BrowserRouter,Route} from 'react-router-dom';
 import Circles from './Components/Circles/Circles';
 
+
 const particlesOptions={
                 particles: {
                   number:{
@@ -17,7 +18,15 @@ const particlesOptions={
                       value_area:300 
                     }
                   }
-                }
+                },
+                "interactivity": {
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "repulse"
+                            }
+                        }
+                    }
               }
 class App extends Component {
   constructor(props){
@@ -26,7 +35,7 @@ class App extends Component {
   render(){
     return(
       <div  style={{
-       position:'relative',
+      
        }} >
        <Navbar {...this.props}/>
        <BrowserRouter>
@@ -34,17 +43,16 @@ class App extends Component {
       
       </div>}/>
       </BrowserRouter>
-          <div style={{
-       position:'relative',
-          background:'linear-gradient(89deg, #FF5EDF 10%, #04C8DE 100%)'}}>
-      <Particles className='particles'
-                params={particlesOptions}  />
+      
+       <Routes{...this.props} />
+      
+       
+          
+      
+     
       
       
-      <Routes{...this.props} />
       
-      
-      </div>
         </div> 
      
     )

@@ -54,7 +54,7 @@ import axios from 'axios';
                     </div>
                 </div>
             </div>
-            <div className="footer">
+            <div className="footer" style={{zIndex:9999}}>
                 <button type="button" className="btn" onClick={this.handleSubmit}>Login</button>
             </div>
             </div>

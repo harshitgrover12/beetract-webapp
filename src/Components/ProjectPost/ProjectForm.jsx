@@ -5,28 +5,21 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import Particles from 'react-particles-js';
 
-const particlesOptions={
-                particles: {
-                  number:{
-                    value:50, 
-                    density:{
-                      enable:true,
-                      value_area:500 
-                    }
-                  }
-                }
-              }
+
+
 
 const styles = theme=> ({
   root: {
     flexGrow: 1,
     
+    
   },
   paper: {
     height: '100%',
-    width: 900,
+    width: 1000,
+    left:'100px'
+    
     
     
   },
@@ -42,6 +35,7 @@ const filestyle = {
   height: 50,
   marginRight: 5,
   marginTop: 20,
+  
 };
 
  class ProjectForm extends Component {
