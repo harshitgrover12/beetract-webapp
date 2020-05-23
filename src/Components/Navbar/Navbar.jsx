@@ -102,8 +102,19 @@ class Navbar extends Component {
   }
   assistance=(e)=>{
     e.preventDefault();
-    this.props.changeThingType('assistance');
-    window.location.replace('/business/assistance')
+   
+    window.location.replace('/business/assistance');
+     this.props.changeThingType('assistance');
+  }
+  seek=(e)=>{
+    e.preventDefault();
+    this.props.changeCarousalType('seek')
+    window.location.replace('/business/assistance/seek')
+  }
+  assist=(e)=>{
+    e.preventDefault();
+    this.props.changeCarousalType('assist')
+    window.location.replace('/business/assistance/assist')
   }
 
     render(){
@@ -183,8 +194,8 @@ class Navbar extends Component {
                       <i className="fa fa-caret-down"></i>
                       </Button>
                       <div class="dropdown-content">
-                      <a onClick={this.projectBidding}>Project Bidding </a>
-                      <a onClick={this.assistance}>Assistance</a>
+                      <a style={{cursor:'pointer'}} onClick={this.projectBidding}>Project Bidding </a>
+                      <a style={{cursor:'pointer'}} onClick={this.assistance}>Assistance</a>
                       
                       </div>
               </div> 
@@ -223,6 +234,19 @@ class Navbar extends Component {
                     Bid On a Project
                 </Button></div>):(<div/>)
               }
+              {
+            this.props.thingType==='assistance'?(
+              <div>
+              <Button variant="contained" edge="start" size="large"  className={classes.menuButton2} onClick={this.seek}>
+                    Seek
+                </Button>
+
+                <Button variant="contained" edge="end"  size="large" className={classes.menuButton2} onClick={this.assist}>
+                   Assist
+                </Button>
+              </div>
+            ):(<div/>)
+          }
                 </StylesProvider>
                 </Toolbar>
              
@@ -230,6 +254,7 @@ class Navbar extends Component {
             </div>
                  ):(<div/>)
           }
+          
           
     </div>
   );}

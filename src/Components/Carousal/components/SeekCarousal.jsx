@@ -22,7 +22,7 @@ function Project(props)
             <div>
             {
                
-        props.carousalType==='viewBids'?(
+        props.carousalType==='seek'?(
         <Paper 
             className="Project"
             style={{
@@ -31,24 +31,24 @@ function Project(props)
             }}
             elevation={10}
         >
-            <h1 style={{textAlign:'center'}}>{props.item.name}</h1>
-            <h1 style={{textAlign:'center'}}>{props.item.bidamount}</h1>
+            <h1 style={{textAlign:'center'}}>{props.item.AssistorName}</h1>
+            <h1 style={{textAlign:'center'}}>{props.item.Category}</h1>
             <h1 style={{textAlign:'center'}}>{props.item.Location}</h1>
 
             <Button className="CheckButton">
                 more details
             </Button>
-            <Button style={{top:'200px',left:'80px',backgroundColor:'#CC0099'}}className="CheckButton">
+            <Button style={{top:'200px',left:'90px',backgroundColor:'#CC0099'}}className="CheckButton">
                 select
             </Button>
-            <Button style={{top:'200px',left:'80px'}}className="CheckButton">
-                Shortlist
+             <Button style={{top:'200px',left:'120px',backgroundColor:'black'}}className="CheckButton">
+                shortlist
             </Button>
-            <Button style={{top:'200px',left:'80px'}}className="CheckButton">
-               Decline
-            </Button>
+            
+           
         </Paper>
-            ):(<Paper 
+            ):(
+               <Paper 
             className="Project"
             style={{
                 backgroundColor: props.item.color, 
@@ -56,58 +56,71 @@ function Project(props)
             }}
             elevation={10}
         >
-            <h1 style={{textAlign:'center'}}>{props.item.CompanyName}</h1>
-            <h1 style={{textAlign:'center'}}>{props.item.bidamount}</h1>
+            <h1 style={{textAlign:'center'}}>{props.item.StartUpName}</h1>
+            <h1 style={{textAlign:'center'}}>{props.item.aidFor}</h1>
             <h1 style={{textAlign:'center'}}>{props.item.Location}</h1>
 
             <Button className="CheckButton">
                 more details
             </Button>
-            <Button className="CheckButton1">
-                Details
+            <Button style={{top:'200px',left:'90px',backgroundColor:'#CC0099'}}className="CheckButton">
+                select
             </Button>
-            <Button style={{backgroundColor:'black'}}className="CheckButton1"href="/business/projectBidding/bidProject/bidForm">
-                Bid
+             <Button style={{top:'200px',left:'120px',backgroundColor:'black'}}className="CheckButton">
+                shortlist
             </Button>
-        </Paper>)}
+            
+           
+        </Paper>
+            )}
+
             </div>
         
     )
 }
 
 const items = [
-    {
-        companyName:"Company Name",
+    {   StartUpName:"StartUp Name",
+        AssistorName:"Assistor Name",
         name: "Project Name",
-        bidamount:'Bid Amount',
+        Category:'Category',
+        aidFor:'aid For',
         Location:'Location',
         description: "A PDF Reader specially designed for musicians.",
         color: "#FFFF"
     },
     {
+         StartUpName:"StartUp Name",
+         AssistorName:"Assistor Name",
         name: "Project Name",
-        bidamount:'Bid Amount',
+        Category:'Category',
+        aidFor:'Aid For',
+        Location:'Location',
+        description: "A PDF Reader specially designed for musicians.",
+        color: "#FFFF"
+    },
+    {    StartUpName:"StartUp Name",
+         AssistorName:"Assistor Name",
+        name: "Project Name",
+        Category:'Category',
+        aidFor:'Aid For ',
         Location:'Location',
         description: "A PDF Reader specially designed for musicians.",
         color: "#FFFF"
     },
     {
+         StartUpName:"StartUp Name",
+        AssistorName:"Assistor Name",
         name: "Project Name",
-        bidamount:'Bid Amount',
+        Category:'Category',
         Location:'Location',
-        description: "A PDF Reader specially designed for musicians.",
-        color: "#FFFF"
-    },
-    {
-        name: "Project Name",
-        bidamount:'Bid Amount',
-        Location:'Location',
+        aidFor:'Aid For ',
         description: "A PDF Reader specially designed for musicians.",
         color: "#FFFF"
     }
 ]
 
- class MyProjectsExample extends Component
+ class SeekCarousal extends Component
 {
     constructor(props)
     {
@@ -126,7 +139,7 @@ const items = [
     }
     componentDidMount=()=>{
         this.props.changeCurStatus(true);
-        this.props.changeThingType('bidding');
+        this.props.changeThingType('assistance');
             }
 
     toggleAutoPlay()
@@ -196,4 +209,4 @@ const items = [
         )
     }
 }
-export default MyProjectsExample;
+export default SeekCarousal;

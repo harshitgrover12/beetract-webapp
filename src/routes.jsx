@@ -3,7 +3,7 @@ import Login from './Components/login/login.jsx'
 import Register from './Components/login/register'
 import Navbar from "./Components/Navbar/Navbar.jsx";
 import {BrowserRouter,Route,Link} from 'react-router-dom';
- 
+import Assistance from './Components/Assistance/Assistance';
 import AboutStartups from './Components/aboutStartups/aboutStartups';
 import Business from './Components/Business/Business';
 import ProjectForm from './Components/ProjectPost/ProjectForm';
@@ -12,6 +12,8 @@ import ProjectBid from './Components/ProjectPost/ProjectBid';
 import MyProjectsExample from './Components/Carousal/components/App';
 import ParticleBackground from './Components/ParticlesComponent';
 import ProjectBidding from './Components/ProjectBidding/ProjectBidding';
+import Seek from './Components/Assistance/Seek';
+import Assist from './Components/Assistance/Assist';
 
 
 
@@ -66,6 +68,10 @@ class Routes extends Component{
                
        </div>}/>
        <Route exact path='/business/projectBidding' render={(props)=><ProjectBidding{...this.props}/>}/>
+       <Route exact path='/business/assistance' render={(props)=><Assistance{...this.props}/>}/>
+      
+        <Route exact path='/business/assistance/seek' render={(props)=><Seek{...this.props}/>}/>
+        <Route exact path='/business/assistance/assist' render={(props)=><Assist{...this.props}/>}/>
        <Route exact path='/business/projectBidding/viewProject' render={(props)=><ViewForm{...this.props}/>}/>
         <Route exact path='/business/projectBidding/bidProject' render={(props)=><MyProjectsExample{...this.props}/>}/>
         <Route exact path='/business/projectBidding/bidProject/bidForm' render={(props)=><ProjectBid{...this.props}/>}/>
