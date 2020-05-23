@@ -49,6 +49,7 @@ const filestyle = {
      
      componentDidMount(){
          this.props.changeCurStatus(true);
+         this.props.changeThingType('bidding');
      }
     render() {
             const {classes} = this.props;

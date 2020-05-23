@@ -11,6 +11,8 @@ import ViewForm from './Components/ViewForm/ViewForm';
 import ProjectBid from './Components/ProjectPost/ProjectBid';
 import MyProjectsExample from './Components/Carousal/components/App';
 import ParticleBackground from './Components/ParticlesComponent';
+import ProjectBidding from './Components/ProjectBidding/ProjectBidding';
+
 
 
 
@@ -56,15 +58,17 @@ class Routes extends Component{
       </div>
       
       <Route exact path='/aboutStartups' render={(props)=><AboutStartups{...this.props} />}/>
+      <Route exact path='/business/aboutStartups' render={(props)=><AboutStartups{...this.props} />}/>
        <Route  path='/business' render={(props)=><Business{...this.props} />}/>
-       <Route  path='/business/postProject'render={(props)=><div><ProjectForm{...this.props}/>
+       <Route  path='/business/projectBidding/postProject'render={(props)=><div><ProjectForm{...this.props}/>
      
             
                
        </div>}/>
-       <Route exact path='/business/viewProject' render={(props)=><ViewForm{...this.props}/>}/>
-        <Route exact path='/business/bidProject' render={(props)=><MyProjectsExample{...this.props}/>}/>
-        <Route exact path='/business/bidProject/bidForm' render={(props)=><ProjectBid{...this.props}/>}/>
+       <Route exact path='/business/projectBidding' render={(props)=><ProjectBidding{...this.props}/>}/>
+       <Route exact path='/business/projectBidding/viewProject' render={(props)=><ViewForm{...this.props}/>}/>
+        <Route exact path='/business/projectBidding/bidProject' render={(props)=><MyProjectsExample{...this.props}/>}/>
+        <Route exact path='/business/projectBidding/bidProject/bidForm' render={(props)=><ProjectBid{...this.props}/>}/>
        <Route path='/signIn' render={(props)=>
        <div className="App">
         <div className="login">

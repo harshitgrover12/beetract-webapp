@@ -66,7 +66,7 @@ function Project(props)
             <Button className="CheckButton1">
                 Details
             </Button>
-            <Button style={{backgroundColor:'black'}}className="CheckButton1"href="/business/bidProject/bidForm">
+            <Button style={{backgroundColor:'black'}}className="CheckButton1"href="/business/projectBidding/bidProject/bidForm">
                 Bid
             </Button>
         </Paper>)}
@@ -126,6 +126,7 @@ const items = [
     }
     componentDidMount=()=>{
         this.props.changeCurStatus(true);
+        this.props.changeThingType('bidding');
             }
 
     toggleAutoPlay()

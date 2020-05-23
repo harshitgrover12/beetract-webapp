@@ -40,6 +40,7 @@ class App extends Component {
        <Navbar {...this.props}/>
        <BrowserRouter>
          <Route exact path='/' render={(props)=><div><Circles{...this.props}  />
+         
       
       </div>}/>
       </BrowserRouter>
@@ -66,7 +67,8 @@ const mapStateToProps = state => {
   return {
      isLoginActive:state.isLoginActive,
     curStatus:state.curStatus,
-    carousalType:state.carousalType
+    carousalType:state.carousalType,
+    thingType:state.thingType,
   };
 };
 
@@ -83,6 +85,10 @@ const mapDispatchToProps = dispatch => {
     changeCarousalType:(carousalType)=>dispatch({
       type:'CAROUSAL',
       carousalType:carousalType
+    }),
+    changeThingType:(thingType)=>dispatch({
+      type:'THING',
+      thingType:thingType
     })
   };
 };

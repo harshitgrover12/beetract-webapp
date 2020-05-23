@@ -5,7 +5,8 @@ import {connect} from 'react-redux';
 class ViewForm extends Component {
     componentDidMount=()=>{
         this.props.changeCurStatus(true);
-        this.props.changeCarousalType('viewBids')
+        this.props.changeCarousalType('viewBids');
+        this.props.changeThingType('bidding');
     }
     render() {
         return (

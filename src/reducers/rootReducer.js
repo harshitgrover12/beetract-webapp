@@ -1,7 +1,8 @@
 const initState={
     isLoginActive:true,
     curStatus:false,
-    carousalType:''
+    carousalType:'',
+    thingType:'',
     
 }
 const rootReducer=(state=initState,action)=>{
@@ -27,6 +28,13 @@ const rootReducer=(state=initState,action)=>{
             ...state,
             carousalType:action.carousalType
         }
+    }
+    if(action.type==='THING'){
+        return{
+            ...state,
+            thingType:action.thingType
+        }
+
     }
     return state;
    

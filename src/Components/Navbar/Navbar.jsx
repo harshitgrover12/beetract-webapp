@@ -85,13 +85,25 @@ class Navbar extends Component {
   viewBids=(e)=>{
     e.preventDefault()
     this.props.changeCarousalType('viewBids');
-     window.location.replace('/business/viewProject')
+     window.location.replace('/business/projectBidding/viewProject')
   }
   bidProject=(e)=>{
     e.preventDefault();
     this.props.changeCarousalType('bidProject');
     
-    window.location.replace('/business/bidProject')
+    window.location.replace('/business/projectBidding/bidProject')
+  }
+  projectBidding=(e)=>{
+    e.preventDefault();
+     window.location.replace('/business/projectBidding');
+    this.props.changeThingType('bidding');
+   
+    
+  }
+  assistance=(e)=>{
+    e.preventDefault();
+    this.props.changeThingType('assistance');
+    window.location.replace('/business/assistance')
   }
 
     render(){
@@ -157,6 +169,25 @@ class Navbar extends Component {
                 Bee-Tract
               </Typography>
               <TextField className={classes.search} id="filled-search" label="Search field" type="search" variant="filled"edge="center" />
+              
+              <Button variant="contained"
+              edge="start"
+              size="medium"
+              className={classes.menuButton}href="/business/aboutStartups">
+          
+            About Startups
+              </Button>
+              <div class="dropdown">
+                  <Button variant="contained" edge="start" size="medium" className={classes.menuButton}>
+                  DropDown
+                      <i className="fa fa-caret-down"></i>
+                      </Button>
+                      <div class="dropdown-content">
+                      <a onClick={this.projectBidding}>Project Bidding </a>
+                      <a onClick={this.assistance}>Assistance</a>
+                      
+                      </div>
+              </div> 
               <Button variant="contained"
               edge="start"
               size="medium"
@@ -179,8 +210,8 @@ class Navbar extends Component {
               
                 <Toolbar className={classes.toolbar1} boxShadow={0}>
                 <StylesProvider injectFirst> 
-               
-              <Button variant="contained" edge="start" size="large"  className={classes.menuButton2} href="/business/postProject">
+              {this.props.thingType==='bidding' ?(<div>
+              <Button variant="contained" edge="start" size="large"  className={classes.menuButton2} href="/business/projectBidding/postProject">
                     Post a Project
                 </Button>
 
@@ -190,7 +221,8 @@ class Navbar extends Component {
 
                 <Button variant="contained" edge="end" size="large" className={classes.menuButton2} onClick={this.bidProject}>
                     Bid On a Project
-                </Button>
+                </Button></div>):(<div/>)
+              }
                 </StylesProvider>
                 </Toolbar>
              
@@ -207,7 +239,8 @@ const mapStateToProps = state => {
   return {
      isLoginActive:state.isLoginActive,
     curStatus:state.curStatus,
-    carousalType:state.carousalType
+    carousalType:state.carousalType,
+    thingType:state.thingType,
   };
 };
 
@@ -215,7 +248,8 @@ const mapDispatchToProps = dispatch => {
   return {
     changeLogin: (isLoginActive) => dispatch({
       type:'LOGIN',
-      isLoginActive:isLoginActive
+      isLoginActive:isLoginActive,
+      
     }),
     changeCurStatus:(curStatus)=>dispatch({
       type:'STATUS',
@@ -224,6 +258,10 @@ const mapDispatchToProps = dispatch => {
     changeCarousalType:(carousalType)=>dispatch({
       type:'CAROUSAL',
       carousalType:carousalType
+    }),
+    changeThingType:(thingsType)=>dispatch({
+      type:'THING',
+      thingType:thingsType,
     })
   };
 };
