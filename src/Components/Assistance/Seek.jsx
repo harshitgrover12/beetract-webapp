@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Seek.css';
-import SeekCarousal from '../Carousal/components/App';
+import SeekCarousal from '../Carousal/components/SeekCarousal'
 class Seek extends Component {
     componentDidMount=()=>{
         this.props.changeThingType('assistance');

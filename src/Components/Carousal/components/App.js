@@ -7,11 +7,13 @@ const App = (props) => (
         
        
         
-        {props.thingType==='bidding'?(
+        {props.carousalType==='viewBids'||props.carousalType==='bidProject'?(
         <MyProjectsExample{...props}/>):
         (<div/>)
         }
-        <SeekCarousal{...props}/>
+       { props.carousalType==='seek'||props.carousalType==='assist'?(
+        <SeekCarousal{...props}/>):(<div/>)
+       }
     </div>
 );
 

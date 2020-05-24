@@ -9,7 +9,7 @@ import Business from './Components/Business/Business';
 import ProjectForm from './Components/ProjectPost/ProjectForm';
 import ViewForm from './Components/ViewForm/ViewForm';
 import ProjectBid from './Components/ProjectPost/ProjectBid';
-import MyProjectsExample from './Components/Carousal/components/App';
+import MyProjectsExample from './Components/Carousal/components/SecondExample';
 import ParticleBackground from './Components/ParticlesComponent';
 import ProjectBidding from './Components/ProjectBidding/ProjectBidding';
 import Seek from './Components/Assistance/Seek';
