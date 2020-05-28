@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
  class ProjectBidding extends Component {
      componentDidMount=()=>{
-         this.props.changeThingType('bidding');
+         this.props.changethingtype('bidding');
      }
     render() {
         return (

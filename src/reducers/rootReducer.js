@@ -1,8 +1,8 @@
 const initState={
-    isLoginActive:true,
-    curStatus:false,
-    carousalType:'',
-    thingType:'',
+    isloginactive:true,
+    curstatus:false,
+    carousaltype:'',
+    thingtype:'',
     
 }
 const rootReducer=(state=initState,action)=>{
@@ -10,7 +10,7 @@ const rootReducer=(state=initState,action)=>{
     {
         return {
             ...state,
-            isLoginActive:action.isLoginActive
+            isloginactive:action.isloginactive
         }
     }
     if(action.type==='STATUS')
@@ -18,7 +18,7 @@ const rootReducer=(state=initState,action)=>{
         
         return{
             ...state,
-            curStatus:action.curStatus
+            curstatus:action.curstatus
         }
     }
     if(action.type==='CAROUSAL')
@@ -26,13 +26,13 @@ const rootReducer=(state=initState,action)=>{
         
         return{
             ...state,
-            carousalType:action.carousalType
+            carousaltype:action.carousaltype
         }
     }
     if(action.type==='THING'){
         return{
             ...state,
-            thingType:action.thingType
+            thingtype:action.thingtype
         }
 
     }

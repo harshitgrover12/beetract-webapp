@@ -17,7 +17,7 @@ const particlesOptions={
          super(props);
      }
      componentDidMount=()=>{
-         this.props.changeCurStatus(true);
+      console.log(this.props);
      }
     render() {
         return (

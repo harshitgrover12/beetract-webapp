@@ -22,7 +22,7 @@ function Project(props)
             <div>
             {
                
-        props.carousalType==='seek'?(
+        props.carousaltype==='seek'?(
         <Paper 
             className="Project"
             style={{
@@ -138,8 +138,7 @@ const items = [
         autoBind(this);
     }
     componentDidMount=()=>{
-        this.props.changeCurStatus(true);
-        this.props.changeThingType('assistance');
+      
             }
 
     toggleAutoPlay()

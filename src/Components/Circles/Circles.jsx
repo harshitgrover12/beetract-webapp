@@ -8,7 +8,7 @@ class Circles extends Component{
     
     handleClick=(curStatus)=>{
         
-        this.props.changeStatus(curStatus);
+        this.props.changestatus(curStatus);
     }
     render(){
         return(

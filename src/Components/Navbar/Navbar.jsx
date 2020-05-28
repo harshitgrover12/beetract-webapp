@@ -10,6 +10,7 @@ import './Navbar.css';
 import {connect} from 'react-redux';
 import {compose} from 'redux';
 
+
         const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -79,54 +80,58 @@ class Navbar extends Component {
   
   handleClick=(e)=>{
     e.preventDefault()
-    this.props.changeCurStatus(false);
-    window.location.replace("/");
+    this.props.changecurstatus(false);
+    this.props.history.push("/");
   }
   viewBids=(e)=>{
     e.preventDefault()
-    this.props.changeCarousalType('viewBids');
-     window.location.replace('/business/projectBidding/viewProject')
+    this.props.changecarousaltype('viewBids');
+    
+     this.props.history.push('/business/projectBidding/viewProject')
   }
   bidProject=(e)=>{
     e.preventDefault();
-    this.props.changeCarousalType('bidProject');
+    this.props.changecarousaltype('bidProject');
     
-    window.location.replace('/business/projectBidding/bidProject')
+    this.props.history.push('/business/projectBidding/bidProject')
   }
   projectBidding=(e)=>{
-    e.preventDefault();
-     window.location.replace('/business/projectBidding');
-    this.props.changeThingType('bidding');
+   
+     this.props.history.push('/business/projectBidding');
+    this.props.changethingtype('bidding');
    
     
+  }
+  handleDashboard=(e)=>{
+    this.props.history.push('/business/dashboard');
   }
   assistance=(e)=>{
     e.preventDefault();
    
-    window.location.replace('/business/assistance');
-     this.props.changeThingType('assistance');
+    this.props.history.push('/business/assistance');
+     this.props.changethingtype('assistance');
   }
   seek=(e)=>{
     e.preventDefault();
-    this.props.changeCarousalType('seek')
-    window.location.replace('/business/assistance/seek')
+    this.props.changecarousaltype('seek')
+    this.props.history.push('/business/assistance/seek')
   }
   assist=(e)=>{
     e.preventDefault();
-    this.props.changeCarousalType('assist')
-    window.location.replace('/business/assistance/assist')
+    this.props.changecarousaltype('assist')
+    this.props.history.push('/business/assistance/assist')
   }
-
+ 
     render(){
 
   const {classes} = this.props;
-  const {curStatus}=this.props;
+  const {curstatus}=this.props;
   
   return (
 
     <div className={classes.root}>
      
-    {!curStatus?(
+    {!curstatus?(
        <div>
       <AppBar position="static">
       
@@ -163,7 +168,7 @@ class Navbar extends Component {
       </AppBar></div>):(<div/>)
           }
           {
-             curStatus?(
+             curstatus?(
                        <div className={classes.root}>
               <AppBar position="static">
               <Toolbar className={classes.toolbar}>
@@ -213,6 +218,9 @@ class Navbar extends Component {
           
               Profile
               </Button>
+              <Button variant="contained" edge="end" size="medium" onClick={this.handleClick} className={classes.menuButton1}onClick={this.handleDashboard}>
+                  Dashboard
+                </Button>
               <Button variant="contained" edge="end" size="medium" onClick={this.handleClick} className={classes.menuButton1}onClick={this.handleClick}>
                   SignOut
                 </Button>
@@ -221,7 +229,7 @@ class Navbar extends Component {
               
                 <Toolbar className={classes.toolbar1} boxShadow={0}>
                 <StylesProvider injectFirst> 
-              {this.props.thingType==='bidding' ?(<div>
+              {this.props.thingtype==='bidding' ?(<div>
               <Button variant="contained" edge="start" size="large"  className={classes.menuButton2} href="/business/projectBidding/postProject">
                     Post a Project
                 </Button>
@@ -235,7 +243,7 @@ class Navbar extends Component {
                 </Button></div>):(<div/>)
               }
               {
-            this.props.thingType==='assistance'?(
+            this.props.thingtype==='assistance'?(
               <div>
               <Button variant="contained" edge="start" size="large"  className={classes.menuButton2} onClick={this.seek}>
                     Seek
@@ -260,39 +268,8 @@ class Navbar extends Component {
   );}
   
 }
-const mapStateToProps = state => {
-  return {
-     isLoginActive:state.isLoginActive,
-    curStatus:state.curStatus,
-    carousalType:state.carousalType,
-    thingType:state.thingType,
-  };
-};
 
-const mapDispatchToProps = dispatch => {
-  return {
-    changeLogin: (isLoginActive) => dispatch({
-      type:'LOGIN',
-      isLoginActive:isLoginActive,
-      
-    }),
-    changeCurStatus:(curStatus)=>dispatch({
-      type:'STATUS',
-      curStatus:curStatus
-    }),
-    changeCarousalType:(carousalType)=>dispatch({
-      type:'CAROUSAL',
-      carousalType:carousalType
-    }),
-    changeThingType:(thingsType)=>dispatch({
-      type:'THING',
-      thingType:thingsType,
-    })
-  };
-};
 export default compose(
   withStyles(styles, { withTheme: true })
-  ,
   
-  connect(mapStateToProps,mapDispatchToProps),
 )(Navbar);

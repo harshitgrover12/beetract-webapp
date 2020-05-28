@@ -3,8 +3,8 @@ import './Seek.css';
 import SeekCarousal from '../Carousal/components/SeekCarousal';
  class Assist extends Component {
       componentDidMount=()=>{
-        this.props.changeThingType('assistance');
-        this.props.changeCarousalType('assist');
+        this.props.changethingtype('assistance');
+        this.props.changecarousaltype('assist');
     }
     render() {
         

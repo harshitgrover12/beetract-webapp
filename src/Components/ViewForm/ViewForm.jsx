@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 import './ViewForm.css';
-import MyProjectsExample from '../Carousal/components/App';
+import MyProjectsExample from '../Carousal/components/SecondExample';
 import {connect} from 'react-redux';
 class ViewForm extends Component {
-    componentDidMount=()=>{
-        this.props.changeCurStatus(true);
-        this.props.changeCarousalType('viewBids');
-        this.props.changeThingType('bidding');
-    }
+    
     render() {
         return (
             <div >

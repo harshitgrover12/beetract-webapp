@@ -14,6 +14,7 @@ import ParticleBackground from './Components/ParticlesComponent';
 import ProjectBidding from './Components/ProjectBidding/ProjectBidding';
 import Seek from './Components/Assistance/Seek';
 import Assist from './Components/Assistance/Assist';
+import Dashboard from './Components/dashboard/Dashboard'
 
 
 
@@ -26,8 +27,8 @@ class Routes extends Component{
   
 
   changeState() {
-    const {isLoginActive} = this.props;
-    if(isLoginActive) {
+    const {isloginactive} = this.props;
+    if(isloginactive) {
       this.rightSide.classList.remove("right");
       this.rightSide.classList.add("left");
     }
@@ -36,15 +37,15 @@ class Routes extends Component{
       this.rightSide.classList.add("right");
     }
 
-    this.props.changeLogin(!this.props.isLoginActive);
+    this.props.changelogin(!this.props.isloginactive);
   }
   
 
 
   render() {
-    const { isLoginActive } = this.props;
-    const current = isLoginActive ? "Register" : "Login";   
-    const currentActive = isLoginActive ? "login" : "register";
+    const { isloginactive } = this.props;
+    const current = isloginactive ? "Register" : "Login";   
+    const currentActive = isloginactive ? "login" : "register";
     return (
       <div style={{maxWidth:'100%',overflow:'hidden',
     
@@ -53,35 +54,38 @@ class Routes extends Component{
 
      
                
-      <BrowserRouter>
+
        
     <div  id="lpg" >
-      <ParticleBackground  />
+    {this.props.history.location.pathname!=='/business/dashboard'?
+      (<ParticleBackground  />):(<div/>)
+    }
       </div>
       
-      <Route exact path='/aboutStartups' render={(props)=><AboutStartups{...this.props} />}/>
-      <Route exact path='/business/aboutStartups' render={(props)=><AboutStartups{...this.props} />}/>
+      <Route  path='/aboutStartups' render={(props)=><AboutStartups{...this.props} />}/>
+     <Route exact path='/business/dashboard' render={(props)=><Dashboard{...this.props} />}/>
+      <Route  path='/business/aboutStartups' render={(props)=><AboutStartups{...this.props} />}/>
        <Route  path='/business' render={(props)=><Business{...this.props} />}/>
        <Route  path='/business/projectBidding/postProject'render={(props)=><div><ProjectForm{...this.props}/>
      
             
                
        </div>}/>
-       <Route exact path='/business/projectBidding' render={(props)=><ProjectBidding{...this.props}/>}/>
-       <Route exact path='/business/assistance' render={(props)=><Assistance{...this.props}/>}/>
+       <Route  path='/business/projectBidding' render={(props)=><ProjectBidding{...this.props}/>}/>
+       <Route  path='/business/assistance' render={(props)=><Assistance{...this.props}/>}/>
       
-        <Route exact path='/business/assistance/seek' render={(props)=><Seek{...this.props}/>}/>
-        <Route exact path='/business/assistance/assist' render={(props)=><Assist{...this.props}/>}/>
-       <Route exact path='/business/projectBidding/viewProject' render={(props)=><ViewForm{...this.props}/>}/>
-        <Route exact path='/business/projectBidding/bidProject' render={(props)=><MyProjectsExample{...this.props}/>}/>
-        <Route exact path='/business/projectBidding/bidProject/bidForm' render={(props)=><ProjectBid{...this.props}/>}/>
-       <Route path='/signIn' render={(props)=>
+        <Route  path='/business/assistance/seek' render={(props)=><Seek{...this.props}/>}/>
+        <Route  path='/business/assistance/assist' render={(props)=><Assist{...this.props}/>}/>
+       <Route  path='/business/projectBidding/viewProject' render={(props)=><ViewForm{...this.props}/>}/>
+        <Route path='/business/projectBidding/bidProject' render={(props)=><MyProjectsExample{...this.props}/>}/>
+        <Route  path='/business/projectBidding/bidProject/bidForm' render={(props)=><ProjectBid{...this.props}/>}/>
+       <Route  path='/signIn' render={(props)=>
        <div className="App">
         <div className="login">
           <div className="container">
           
-            {isLoginActive && <Login {...this.props} containerRef ={ (ref) => this.current=ref} />}
-            {!isLoginActive && <Register {...this.props} containerRef ={ (ref) => this.current=ref} />}
+            {isloginactive && <Login {...this.props} containerRef ={ (ref) => this.current=ref} />}
+            {!isloginactive && <Register {...this.props} containerRef ={ (ref) => this.current=ref} />}
           </div>
           <RightSide  current={current} containerRef={ref => this.rightSide = ref} onClick={this.changeState.bind(this)}/>
            
@@ -93,7 +97,7 @@ class Routes extends Component{
        }/>
   
       
-      </BrowserRouter>
+     
       </div>
 
     );

@@ -8,44 +8,26 @@ import Particles from 'react-particles-js';
 import {BrowserRouter,Route} from 'react-router-dom';
 import Circles from './Components/Circles/Circles';
 
+import { withRouter } from "react-router";
+import {compose} from 'redux';
 
-const particlesOptions={
-                particles: {
-                  number:{
-                    value:10, 
-                    density:{
-                      enable:true,
-                      value_area:300 
-                    }
-                  }
-                },
-                "interactivity": {
-                        "events": {
-                            "onhover": {
-                                "enable": true,
-                                "mode": "repulse"
-                            }
-                        }
-                    }
-              }
 class App extends Component {
   constructor(props){
     super(props);
   }
   render(){
     return(
-      <div  style={{
-      
-       }} >
-       <Navbar {...this.props}/>
+      <div> 
        <BrowserRouter>
+       {this.props.history.location.pathname!=='/business/dashboard'?
+         (<Navbar{...this.props}/>):(<div/>)
+       }
          <Route exact path='/' render={(props)=><div><Circles{...this.props}  />
-         
-      
       </div>}/>
       </BrowserRouter>
       
        <Routes{...this.props} />
+      
       
        
           
@@ -65,32 +47,37 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-     isLoginActive:state.isLoginActive,
-    curStatus:state.curStatus,
-    carousalType:state.carousalType,
-    thingType:state.thingType,
+     isloginactive:state.isloginactive,
+    curstatus:state.curstatus,
+    carousaltype:state.carousaltype,
+    thingtype:state.thingtype,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    changeLogin: (isLoginActive) => dispatch({
+    changelogin: (isloginactive) => dispatch({
       type:'LOGIN',
-      isLoginActive:isLoginActive
+      isloginactive:isloginactive
     }),
-    changeCurStatus:(curStatus)=>dispatch({
+    changecurstatus:(curstatus)=>dispatch({
       type:'STATUS',
-      curStatus:curStatus
+      curstatus:curstatus
     }),
-    changeCarousalType:(carousalType)=>dispatch({
+    changecarousaltype:(carousaltype)=>dispatch({
       type:'CAROUSAL',
-      carousalType:carousalType
+      carousaltype:carousaltype
     }),
-    changeThingType:(thingType)=>dispatch({
+    changethingtype:(thingtype)=>dispatch({
       type:'THING',
-      thingType:thingType
+      thingtype:thingtype
     })
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps) (App);
+export default compose(
+  withRouter,
+  connect(mapStateToProps,mapDispatchToProps)
+
+  
+) (App);

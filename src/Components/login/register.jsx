@@ -91,7 +91,7 @@ import axios from 'axios';
         is_incubator:is_incubator        
   }).then(({data})=>console.log(data)).then((response)=>console.log(response)).catch((error)=>alert(error));
 
-    this.props.changeLogin(!this.props.isLoginActive);
+    this.props.changelogin(!this.props.isloginactive);
     
 
 }
@@ -140,24 +140,7 @@ import axios from 'axios';
 
 
 
-const mapStateToProps = state => {
-  return {
-     isLoginActive:state.isLoginActive,
-    curStatus:state.curStatus
-  };
-};
 
-const mapDispatchToProps = dispatch => {
-  return {
-    changeLogin: (isLoginActive) => dispatch({
-      type:'LOGIN',
-      isLoginActive:isLoginActive
-    }),
-    changeCurStatus:(curStatus)=>dispatch({
-      type:'STATUS',
-      curStatus:curStatus
-    })
-  };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)  (Register);
+
+export default   (Register);
