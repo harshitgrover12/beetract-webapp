@@ -59,7 +59,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   toolbar: {
-    paddingRight: 24, // keep right padding when drawer closed
+    paddingRight: 24,
+    background: 'white' // keep right padding when drawer closed
   },
   toolbarIcon: {
     display: 'flex',
@@ -67,12 +68,15 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
     padding: '0 8px',
     ...theme.mixins.toolbar,
+    
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+   
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
+     
     }),
   },
   appBarShift: {
@@ -85,6 +89,7 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: 36,
+    
   },
   menuButtonHidden: {
     display: 'none',
@@ -98,14 +103,17 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 5,
+    color:'black'
   },
   about: {
     alignSelf: 'center',
     marginRight: 20,
+    color:'black'
   },
   drawerPaper: {
     position: 'absolute',
     whiteSpace: 'noWrap',
+    background: ' #04C8DE ',
     width: drawerWidth ,
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
@@ -140,6 +148,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
+    
+    
   },
   fixedHeight: {
     height: 240,
@@ -169,7 +179,7 @@ export default function Dashboard(props) {
         <Toolbar className={classes.toolbar}>
           <IconButton
             edge="start"
-            color="inherit"
+            color="black"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
@@ -188,7 +198,7 @@ export default function Dashboard(props) {
 
 
           <TextField className={classes.search} id="filled-search" label="Search.." type="search" variant="filled"edge="center" />
-          <IconButton color="inherit">
+          <IconButton color="black">
             <Badge color="secondary">
               < SearchSharpIcon />
             </Badge>
@@ -216,7 +226,7 @@ export default function Dashboard(props) {
             <ChevronLeftIcon />
           </IconButton>
         </div>
-        <Divider />
+        <Divider  />
         <List>     <div>
     <ListItem button>
       <ListItemIcon>
@@ -305,7 +315,7 @@ props.history.push('/business/projectBidding/bidProject')
           <Grid container spacing={3}>
             {/* Chart */}
             <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
+              <Paper className={fixedHeightPaper} >
                 <Chart />
               </Paper>
             </Grid>
