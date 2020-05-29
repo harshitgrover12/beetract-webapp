@@ -17,11 +17,27 @@ import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import SearchSharpIcon from '@material-ui/icons/SearchSharp';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+//import NotificationsIcon from '@material-ui/icons/Notifications';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import AccountTreeIcon from '@material-ui/icons/AccountTree';
+import SpaIcon from '@material-ui/icons/Spa';
+import PostAddIcon from '@material-ui/icons/PostAdd';
+import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import PersonPinIcon from '@material-ui/icons/PersonPin';
+import LayersIcon from '@material-ui/icons/Layers';
+import AssignmentIcon from '@material-ui/icons/Assignment';
+import HomeWorkIcon from '@material-ui/icons/HomeWork';
+import ShopTwoIcon from '@material-ui/icons/ShopTwo';
 
 function Copyright() {
   return (
@@ -36,7 +52,7 @@ function Copyright() {
   );
 }
 
-const drawerWidth = 240;
+const drawerWidth = 240; 
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -73,13 +89,24 @@ const useStyles = makeStyles((theme) => ({
   menuButtonHidden: {
     display: 'none',
   },
+  search: {
+    alignSelf: 'flex-end',
+    backgroundColor:'white',
+    display: 'flex',
+    marginTop: 5,
+    marginBottom: 5,
+  },
   title: {
-    flexGrow: 1,
+    flexGrow: 5,
+  },
+  about: {
+    alignSelf: 'center',
+    marginRight: 20,
   },
   drawerPaper: {
-    position: 'relative',
-    whiteSpace: 'nowrap',
-    width: drawerWidth,
+    position: 'absolute',
+    whiteSpace: 'noWrap',
+    width: drawerWidth ,
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -99,15 +126,17 @@ const useStyles = makeStyles((theme) => ({
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    height: '100vh',
+    height: '140vh',
+    paddingLeft: 50,
     overflow: 'auto',
+    position: 'relative', //added
   },
   container: {
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(4),
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
@@ -117,7 +146,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Dashboard() {
+
+
+
+
+export default function Dashboard(props) {
+
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -143,13 +177,31 @@ export default function Dashboard() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Dashboard
+            Beetract
           </Typography>
+
+
+          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.about}>
+            About
+          </Typography>
+          
+
+
+          <TextField className={classes.search} id="filled-search" label="Search.." type="search" variant="filled"edge="center" />
           <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
+            <Badge color="secondary">
+              < SearchSharpIcon />
             </Badge>
           </IconButton>
+
+          
+
+          <IconButton color="inherit">
+            <Badge  color="secondary">
+              <AccountCircleIcon  fontSize="large"/>
+            </Badge>
+          </IconButton>
+
         </Toolbar>
       </AppBar>
       <Drawer
@@ -165,9 +217,87 @@ export default function Dashboard() {
           </IconButton>
         </div>
         <Divider />
-        <List>{mainListItems}</List>
+        <List>     <div>
+    <ListItem button>
+      <ListItemIcon>
+        <AccountTreeIcon />
+      </ListItemIcon>
+      <ListItemText primary="All About Startups" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <SpaIcon />
+      </ListItemIcon>
+      <ListItemText primary="Market Research" />
+    </ListItem>
+  </div></List>
         <Divider />
-        <List>{secondaryListItems}</List>
+        <List><div>
+        <ListItem button onClick={(e)=>{
+          e.preventDefault()
+props.changethingtype('bidding');
+
+props.history.push('projectBidding/postProject');
+        }} >
+      <ListItemIcon>
+        <PostAddIcon />
+      </ListItemIcon>
+      <ListItemText primary="Post a Project" />
+    </ListItem>
+    <ListItem button onClick={(e)=>{
+      e.preventDefault();
+      props.changethingtype('bidding');
+props.changecarousaltype('bidProject');
+props.history.push('/business/projectBidding/bidProject') 
+    }}>
+      <ListItemIcon>
+        <MonetizationOnIcon />
+      </ListItemIcon>
+      <ListItemText primary="Bid on a Project" />
+    </ListItem>
+     
+    
+   <ListItem button onClick={(e)=>{
+     e.preventDefault();  
+    props.history.push('/business/assistance');
+    props.changethingtype('assistance');
+}
+   }>
+    <ListItemIcon>
+       <LayersIcon />
+      </ListItemIcon>
+      <ListItemText primary="Access Assistance" />
+    </ListItem>
+    </div></List>
+        <Divider />
+        <List>   <div>
+    
+    <ListItem button>
+      <ListItemIcon>
+        <AssignmentIcon />
+      </ListItemIcon>
+      <ListItemText primary="Apply for Incubation" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <PersonPinIcon />
+      </ListItemIcon>
+      <ListItemText primary="Hire Candidates" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <HomeWorkIcon />
+      </ListItemIcon>
+      <ListItemText primary="Acquire a company" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <ShopTwoIcon />
+      </ListItemIcon>
+      <ListItemText primary="Sell Company" />
+    </ListItem>
+  </div></List>
+        
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
