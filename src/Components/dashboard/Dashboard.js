@@ -206,7 +206,7 @@ export default function Dashboard(props) {
 
           
 
-          <IconButton color="inherit">
+          <IconButton color="black">
             <Badge  color="secondary">
               <AccountCircleIcon  fontSize="large"/>
             </Badge>
