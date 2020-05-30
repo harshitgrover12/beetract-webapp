@@ -91,3 +91,23 @@ h1 {
 h1 span {
     color: #167F92;
 }
+
+.buttonarea {
+    background-color: white;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.button1 {
+    height: 100px;
+    display: inline-block;
+    border: 0px solid white;
+    width: 25%;
+    background-color: white;
+    font-size: large;
+    border-bottom: 1px solid blue;
+}
+
+.button1:hover {
+    border-bottom: 10px solid blue;
+}

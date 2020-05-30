@@ -7,7 +7,7 @@ class ParticleBackground extends Component {
     render() {
         return (
             <Particles id="particle-bg"
-                style={{background: 'linear-gradient(89deg, #FF5EDF 10%, #04C8DE 100%)'}}
+                style={{background: 'linear-gradient(89deg, #FF5EDF 10%, #6200ea 100%)',height:'900'}}
                 params={{
                     "particles": {
                         "number": {

@@ -2,85 +2,37 @@ import React, { Component } from 'react'
 import './ViewForm.css';
 import MyProjectsExample from '../Carousal/components/SecondExample';
 import {connect} from 'react-redux';
+import AlignItemsList from './listItems';
+import Button from '@material-ui/core/Button';
+import Toolbar from '@material-ui/core/Toolbar'
+import Divider from '@material-ui/core/Divider';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles' ;
+import AppBar from '@material-ui/core/AppBar';
+
+
+
+
 class ViewForm extends Component {
-    
+  
     render() {
-        return (
-            <div >
+      return(
+      <div class="buttonarea">
+        <button class="button1">All</button>
+        <button class="button1">Selected</button>
+        <button class="button1">Shortlisted</button>
+        <button class="button1">Declined</button>
+      
+            
+        <Divider/>
+              
+              
                 
-
-<table class="responstable">
-  
-  <tr>
-    <th>All</th>
-    <th data-th="bid-status"><span>Shortlisted</span></th>
-    <th>Selected</th>
-    <th>Declined</th>
-    
-  </tr>
-  
-  <tr>
-    <td>hello</td>
-    <td>Steve</td>
-    <td>Foo</td>
-    <td>01/01/1978</td>
- 
-  </tr>
-  
-  <tr>
-    <td>Hello</td>
-    <td>Steffie</td>
-    <td>Foo</td>
-    <td>01/01/1978</td>
-    
-  </tr>
-  
-  <tr>
-    <td>hello</td>
-    <td>Stan</td>
-    <td>Foo</td>
-    <td>01/01/1994</td>
-   
-  </tr>
-  
-  <tr>
-    <td>hello</td>
-    <td>Stella</td>
-    <td>Foo</td>
-    <td>01/01/1992</td>
-    
-  </tr>
-  
-</table>
-
-<MyProjectsExample {...this.props}/>
-            </div>
-        )
+        <AlignItemsList/>
+            
+          </div>
+        );
     }
 }
-const mapStateToProps = state => {
-  return {
-     isLoginActive:state.isLoginActive,
-    curStatus:state.curStatus,
-    carousalType:state.carousalType
-  };
-};
 
-const mapDispatchToProps = dispatch => {
-  return {
-    changeLogin: (isLoginActive) => dispatch({
-      type:'LOGIN',
-      isLoginActive:isLoginActive
-    }),
-    changeCurStatus:(curStatus)=>dispatch({
-      type:'STATUS',
-      curStatus:curStatus
-    }),
-    changeCarousalType:(carousalType)=>dispatch({
-      type:'CAROUSAL',
-      carousalType:carousalType
-    })
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps) (ViewForm);
+export default (ViewForm);

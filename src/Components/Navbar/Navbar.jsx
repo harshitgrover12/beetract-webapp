@@ -37,7 +37,7 @@ import {compose} from 'redux';
   toolbar1: {
     minHeight: 150,
     alignItems: 'center',
-    background: 'linear-gradient(89deg, #FF5EDF 10%, #04C8DE 100%)',
+    background: 'linear-gradient(89deg, #FF5EDF 10%, #6200ea 100%)'
     
   },
   toolbar: {
@@ -47,7 +47,7 @@ import {compose} from 'redux';
     paddingBottom: theme.spacing(2),
     zIndex:12,
     
-    background: 'linear-gradient(89deg, #FF5EDF 10%, #04C8DE 100%)',
+    background: 'linear-gradient(89deg, #FF5EDF 10%, #6200ea 100%)',
     
     
     display:'flex',

@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
-import Login from './Components/login/login.jsx'
+import Login from './Components/login/login.jsx';
+import Roles from './Components/login/Roles';
 import Register from './Components/login/register'
 import Navbar from "./Components/Navbar/Navbar.jsx";
 import {BrowserRouter,Route,Link} from 'react-router-dom';
@@ -71,6 +72,7 @@ class Routes extends Component{
             
                
        </div>}/>
+       <Route  path='/roles' render={(props)=><Roles{...this.props}/>}/>
        <Route  path='/business/projectBidding' render={(props)=><ProjectBidding{...this.props}/>}/>
        <Route  path='/business/assistance' render={(props)=><Assistance{...this.props}/>}/>
       
