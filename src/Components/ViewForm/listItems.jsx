@@ -6,6 +6,7 @@ import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
+import Collapsible from 'react-collapsible';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,7 +40,12 @@ export default function AlignItemsList() {
                 Bid Amount
               </Typography>
               {"  — Location…"}
+              <Collapsible trigger="Details">
+             <p>This is the collapsible content. It can be any element or React component you like.</p>
+             <p>It can even be another Collapsible component. Check out the next section!</p>
+           </Collapsible>
             </React.Fragment>
+            
           }
         />
       </ListItem>
@@ -58,6 +64,10 @@ export default function AlignItemsList() {
                  Bid Amount
               </Typography>
               {" — Location…"}
+              <Collapsible trigger="Details">
+             <p>This is the collapsible content. It can be any element or React component you like.</p>
+             <p>It can even be another Collapsible component. Check out the next section!</p>
+           </Collapsible>
             </React.Fragment>
           }
         />
@@ -77,6 +87,10 @@ export default function AlignItemsList() {
                 Bid Amount
               </Typography>
               {' — Location…'}
+              <Collapsible trigger="Details">
+             <p>This is the collapsible content. It can be any element or React component you like.</p>
+             <p>It can even be another Collapsible component. Check out the next section!</p>
+           </Collapsible>
             </React.Fragment>
           }
         />
@@ -96,6 +110,10 @@ export default function AlignItemsList() {
                 Bid Amount
               </Typography>
               {" — Location…"}
+              <Collapsible trigger="Details">
+             <p>This is the collapsible content. It can be any element or React component you like.</p>
+             <p>It can even be another Collapsible component. Check out the next section!</p>
+           </Collapsible>
             </React.Fragment>
           }
         />
@@ -115,6 +133,10 @@ export default function AlignItemsList() {
                 Bid Amount
               </Typography>
               {" — Location…"}
+              <Collapsible trigger="Details">
+             <p>This is the collapsible content. It can be any element or React component you like.</p>
+             <p>It can even be another Collapsible component. Check out the next section!</p>
+           </Collapsible>
             </React.Fragment>
           }
         />
@@ -133,7 +155,12 @@ export default function AlignItemsList() {
               >
                 Bid Amount
               </Typography>
+              
               {" — Location…"}
+              <Collapsible trigger="Details">
+             <p>This is the collapsible content. It can be any element or React component you like.</p>
+             <p>It can even be another Collapsible component. Check out the next section!</p>
+           </Collapsible>
             </React.Fragment>
           }
         />
