@@ -5,25 +5,51 @@ import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+import './Roles.scss';
 import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+root: {
     flexGrow: 1,
     overflow: 'hidden',
     padding: theme.spacing(0, 3),
     height:900,
-   
+    textAlign: 'center',
+
   },
   checked: {},
   paper: {
     marginTop:'50px',
-    maxWidth: 800,
     margin: `${theme.spacing(1)}px auto`,
     padding: theme.spacing(2),
     height:100,
-    
+    maxWidth: '600',
+    textAlign: 'center',
+
   },
+  heading: {
+      height: 50,
+      maxWidth: '50%',
+      alignSelf: 'flex-start',
+      marginRight: 500,
+      margin: `${theme.spacing(1)}px auto`,
+      textAlign: 'center',
+      paddingTop: 15,
+      paddingBottom: 20,
+      fontSize: 10,
+  },
+  button: {
+      height: 50,
+      width: 800,
+      alignSelf: 'center',
+      marginRight: '10px',
+      marginLeft: '10px',
+  }
+
 }));
 
 
@@ -104,87 +130,99 @@ const handleClick=(event)=>{
 }
   return (
     <div className={classes.root}>
+        <Paper className={classes.heading}>
+        <FormLabel component="legend">Choose Role</FormLabel>
+        </Paper>
+
+        <RadioGroup aria-label="gender" name="radio-button-demo" value={selectedValue} onChange={handleChange}>
+
       <Paper className={classes.paper} elevation={10} for="1">
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item>
-            <Avatar>W</Avatar>
+            <Avatar>B</Avatar>
           </Grid>
-          <Grid item xs zeroMinWidth>
-            <Typography noWrap>Business</Typography>
-             <Radio
-             id="1"
-        checked={selectedValue === "Business"}
-        onChange={handleChange}
-        value="Business"
-        name="radio-button-demo"
-        inputProps={{ 'aria-label': "Business"}}
-        style={{top:-2,left:680}}
-      />
-            <p style={{top:-40,position:'relative'}}>This is business</p>
+          <Grid item xs zeroMinWidth >
             
+            <FormControlLabel  className ={classes.button} 
+            value="Business"  
+            checked={selectedValue === 'Business'}
+            control={<Radio />} 
+            label="Business"
+            inputProps={{ 'aria-label': 'Business' }}
+            labelPlacement="start"
+            onChange={handleChange}
+            />
+            
+
           </Grid>
         </Grid>
       </Paper>
       <Paper className={classes.paper}>
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item>
-            <Avatar>W</Avatar>
+            <Avatar>S</Avatar>
           </Grid>
           <Grid item xs zeroMinWidth>
-            <Typography noWrap>Startup</Typography>
-             <Radio
+            
+             <FormControlLabel className ={classes.button} 
         checked={selectedValue === 'Startup'}
         onChange={handleChange}
+        control={<Radio />} 
         value="Startup"
+        label="  Startup  "
         name="radio-button-demo"
         inputProps={{ 'aria-label': 'Startup' }}
-        style={{top:-2,left:680}}
+        labelPlacement="start"
       />
-            <p style={{top:-40,position:'relative'}}>This is Startup</p>
             
+
           </Grid>
         </Grid>
       </Paper>
       <Paper className={classes.paper}>
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item>
-            <Avatar>W</Avatar>
+            <Avatar>I</Avatar>
           </Grid>
           <Grid item xs zeroMinWidth>
-            <Typography noWrap>Individual</Typography>
-            <Radio
+            
+            <FormControlLabel className ={classes.button} 
         checked={selectedValue === 'Individual'}
         onChange={handleChange}
-        value="Individual"
+        value="c"
+        label="Individual"
+        labelPlacement="start"
         name="radio-button-demo"
         inputProps={{ 'aria-label': 'Individual' }}
-        style={{top:-2,left:680}}
+        control={<Radio />} 
       />
-            <p style={{top:-40,position:'relative'}}>This is Individual</p>
           </Grid>
-          
+
         </Grid>
       </Paper>
       <Paper className={classes.paper}>
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item>
-            <Avatar>W</Avatar>
+            <Avatar>B</Avatar>
           </Grid>
           <Grid item xs zeroMinWidth>
-            <Typography noWrap>Incubator</Typography>
-            <Radio
+            <FormControlLabel className ={classes.button} 
         checked={selectedValue === 'Incubator'}
         onChange={handleChange}
         value="Incubator"
+        labelPlacement="start"
+        label="Incubator"
         name="radio-button-demo"
         inputProps={{ 'aria-label': 'Incubator' }}
-        style={{top:-2,left:680}}
+        control={<Radio />} 
       />
-            <p style={{top:-40,position:'relative'}}>This is Incubator</p>
           </Grid>
         </Grid>
       </Paper>
-       <button type="button" value="submit" className="btn" onClick={handleSubmit}> Register</button>
+      </RadioGroup>
+
+      <button type="button"value="submit" class="submitbutton"onClick={handleSubmit}>Register</button>
+
     </div>
   );
 }

@@ -1,0 +1,25 @@
+.submitbutton {
+    font-size: 21px;
+    padding: 5px 20px;
+    border: 0;
+    background: black;
+    color: #fff;
+    border-radius: 3px;
+    transition: all 250ms ease-in-out;
+    margin-top: 20px;
+    z-index: 99999;
+    cursor: pointer;
+    &:hover {
+        background: #04C8DE;
+        z-index: 999999
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+.MuiFormControlLabel-label {
+    margin-right: 700px;
+    margin-bottom: 10px;
+    position: relative;
+}
