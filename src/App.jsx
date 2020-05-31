@@ -51,6 +51,7 @@ const mapStateToProps = state => {
     curstatus:state.curstatus,
     carousaltype:state.carousaltype,
     thingtype:state.thingtype,
+    userdata:state.userdata,
   };
 };
 
@@ -71,6 +72,10 @@ const mapDispatchToProps = dispatch => {
     changethingtype:(thingtype)=>dispatch({
       type:'THING',
       thingtype:thingtype
+    }),
+    changeuserdata:(userdata)=>dispatch({
+      type:'DETAILS',
+      userdata:userdata
     })
   };
 };

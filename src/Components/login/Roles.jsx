@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Radio from '@material-ui/core/Radio';
-
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,10 +28,73 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function Roles() {
+export default function Roles(props) {
   const classes = useStyles();
     const [selectedValue, setSelectedValue] = React.useState('a');
+const handleSubmit=(e)=>{
+    e.preventDefault();
+   
+    
+    
+    let is_official=false;
+    let is_business=false;
+    let is_assistor=false;
+    let is_mentor=false;
+    let is_acquirer=false;
+    let is_job_seeker=false;
+    let is_incubator=false;
+    
+    if(selectedValue==='Official')
+    {
+        is_official=true;
+    }
+    if(selectedValue==='Business')
+    {
+        is_business=true;
+    }
+    if(selectedValue==='Assistor')
+    {
+        is_assistor=true;
+    }
+    if(selectedValue==='Mentor')
+    {
+        is_mentor=true;
+    }
+    if(selectedValue==='Acquirer')
+    {
+        is_acquirer=true;
+    }
+    if(selectedValue==='Job Seeker')
+    {
+        is_job_seeker=true;
+    }
+    if(selectedValue==='Incubator')
+    {
+        is_incubator=true;
+    }
+   
+   
+   
+    axios.post('https://beetract.herokuapp.com/auth/registration/',{
+        first_name:props.userdata.first_name,
+        last_name:props.userdata.last_name,
+        email:props.userdata.email,
+        password1:props.userdata.password1,
+        is_official:is_official,
+        is_business:is_business,
+        is_assistor:is_assistor,
+        is_mentor:is_mentor,
+        is_acquirer:is_acquirer,
+        is_job_seeker:is_job_seeker,
+        is_incubator:is_incubator        
+  }).then(({data})=>console.log(data)).then((response)=>{console.log(response)
+       props.history.push('/business/dashboard');
+  }).catch((error)=>alert(error));
 
+   
+    
+
+}
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
   };
@@ -50,11 +113,11 @@ const handleClick=(event)=>{
             <Typography noWrap>Business</Typography>
              <Radio
              id="1"
-        checked={selectedValue === 'a'}
+        checked={selectedValue === "Business"}
         onChange={handleChange}
-        value="a"
+        value="Business"
         name="radio-button-demo"
-        inputProps={{ 'aria-label': 'A' }}
+        inputProps={{ 'aria-label': "Business"}}
         style={{top:-2,left:680}}
       />
             <p style={{top:-40,position:'relative'}}>This is business</p>
@@ -70,11 +133,11 @@ const handleClick=(event)=>{
           <Grid item xs zeroMinWidth>
             <Typography noWrap>Startup</Typography>
              <Radio
-        checked={selectedValue === 'b'}
+        checked={selectedValue === 'Startup'}
         onChange={handleChange}
-        value="b"
+        value="Startup"
         name="radio-button-demo"
-        inputProps={{ 'aria-label': 'B' }}
+        inputProps={{ 'aria-label': 'Startup' }}
         style={{top:-2,left:680}}
       />
             <p style={{top:-40,position:'relative'}}>This is Startup</p>
@@ -90,11 +153,11 @@ const handleClick=(event)=>{
           <Grid item xs zeroMinWidth>
             <Typography noWrap>Individual</Typography>
             <Radio
-        checked={selectedValue === 'c'}
+        checked={selectedValue === 'Individual'}
         onChange={handleChange}
-        value="c"
+        value="Individual"
         name="radio-button-demo"
-        inputProps={{ 'aria-label': 'C' }}
+        inputProps={{ 'aria-label': 'Individual' }}
         style={{top:-2,left:680}}
       />
             <p style={{top:-40,position:'relative'}}>This is Individual</p>
@@ -110,18 +173,18 @@ const handleClick=(event)=>{
           <Grid item xs zeroMinWidth>
             <Typography noWrap>Incubator</Typography>
             <Radio
-        checked={selectedValue === 'd'}
+        checked={selectedValue === 'Incubator'}
         onChange={handleChange}
-        value="d"
+        value="Incubator"
         name="radio-button-demo"
-        inputProps={{ 'aria-label': 'D' }}
+        inputProps={{ 'aria-label': 'Incubator' }}
         style={{top:-2,left:680}}
       />
             <p style={{top:-40,position:'relative'}}>This is Incubator</p>
           </Grid>
         </Grid>
       </Paper>
-      
+       <button type="button" value="submit" className="btn" onClick={handleSubmit}> Register</button>
     </div>
   );
 }

@@ -3,7 +3,7 @@ const initState={
     curstatus:false,
     carousaltype:'',
     thingtype:'',
-    
+    userdata:{},
 }
 const rootReducer=(state=initState,action)=>{
     if(action.type==='LOGIN')
@@ -35,6 +35,13 @@ const rootReducer=(state=initState,action)=>{
             thingtype:action.thingtype
         }
 
+    }
+    if(action.type==='DETAILS')
+    {
+        return{
+            ...state,
+            userdata:action.userdata,
+        }
     }
     return state;
    
