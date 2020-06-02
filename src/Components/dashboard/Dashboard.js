@@ -280,7 +280,8 @@ props.history.push('/business/projectBidding/bidProject')
     </ListItem>
     </div></List>
         <Divider />
-        <List>   <div>
+        <List>  
+         <div>
     
     <ListItem button>
       <ListItemIcon>
@@ -306,8 +307,20 @@ props.history.push('/business/projectBidding/bidProject')
       </ListItemIcon>
       <ListItemText primary="Sell Company" />
     </ListItem>
+    <Divider/>
   </div></List>
-        
+          <List>     <div>
+    <ListItem button onClick={(e)=>{e.preventDefault();
+props.history.push('/business/dashboard/profile')
+
+    }}>
+      <ListItemIcon>
+        <AccountTreeIcon />
+      </ListItemIcon>
+      <ListItemText primary="Profile" />
+    </ListItem>
+    
+  </div></List> 
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />

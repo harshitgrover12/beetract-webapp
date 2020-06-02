@@ -15,7 +15,8 @@ import ParticleBackground from './Components/ParticlesComponent';
 import ProjectBidding from './Components/ProjectBidding/ProjectBidding';
 import Seek from './Components/Assistance/Seek';
 import Assist from './Components/Assistance/Assist';
-import Dashboard from './Components/dashboard/Dashboard'
+import Dashboard from './Components/dashboard/Dashboard';
+import UserProfile from './Components/dashboard/UserProfile'
 
 
 
@@ -58,7 +59,7 @@ class Routes extends Component{
 
        
     <div  id="lpg" >
-    {this.props.history.location.pathname!=='/business/dashboard'?
+    {this.props.history.location.pathname!=='/business/dashboard/profile'?
       (<ParticleBackground  />):(<div/>)
     }
       </div>
@@ -67,11 +68,9 @@ class Routes extends Component{
      <Route exact path='/business/dashboard' render={(props)=><Dashboard{...this.props} />}/>
       <Route  path='/business/aboutStartups' render={(props)=><AboutStartups{...this.props} />}/>
        <Route  path='/business' render={(props)=><Business{...this.props} />}/>
-       <Route  path='/business/projectBidding/postProject'render={(props)=><div><ProjectForm{...this.props}/>
-     
-            
-               
+       <Route  path='/business/projectBidding/postProject'render={(props)=><div><ProjectForm{...this.props}/>    
        </div>}/>
+       <Route path='/business/dashboard/profile' render={(props)=><UserProfile{...this.props}/>}/>
        <Route  path='/roles' render={(props)=><Roles{...this.props}/>}/>
        <Route  path='/business/projectBidding' render={(props)=><ProjectBidding{...this.props}/>}/>
        <Route  path='/business/assistance' render={(props)=><Assistance{...this.props}/>}/>
