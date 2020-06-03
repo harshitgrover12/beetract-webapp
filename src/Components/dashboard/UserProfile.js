@@ -1,11 +1,12 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React,{Component} from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import './UserProfile.css';
-const useStyles = makeStyles((theme) => ({
+import EditProfile from './EditProfile';
+const styles = (theme) => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -13,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(1),
       width: 800,
-      height: 700
+      height: 'auto'
     },
    
   },
@@ -26,11 +27,31 @@ const useStyles = makeStyles((theme) => ({
       width:'auto'
       
     }
-}));
+});
 
-export default function SimplePaper() {
-  const classes = useStyles();
+class UserProfile extends Component {
+  
 
+  state={
+    editProfile:false
+  }
+  
+
+handleClick=(e)=>{
+  this.setState(
+    {
+      editProfile:true
+    });
+}
+changeProfile=(editProfile)=>{
+  this.setState({
+    editProfile:editProfile
+  });
+}
+
+render()
+{
+  const {classes} = this.props;
   return (
     <div className={classes.root}>
       <Paper elevation={10} >
@@ -38,29 +59,154 @@ export default function SimplePaper() {
       <hr style={{marginLeft:'20px',width:'250px'}}/>
       <Button variant="contained"
             edge="end"
-            className={classes.buttons}>
+            className={classes.buttons} onClick={this.handleClick}>
           
             Edit Profile
+            
+         
           </Button>
+             {this.state.editProfile===false?(
           <div class="container2">
             <div class="row2">
                 <div class="col-251" >
-                  Name
+                  Business Name
                 </div>
                 <div class="col-751">
-                 Harshit Grover
-                </div>
+                 
+                </div> 
               </div>
               <div class="row2">
                 <div class="col-251" >
-                  Contact
+                  Category
                 </div>
                 <div class="col-751">
-                +91-8427719944
+                
                 </div>
               </div>
-          </div>
-      
+              <div class="row2">
+  <div class="col-251">
+    Location
+  </div>
+  <div class="col-751">
+   
+  </div>
+</div>
+
+<div class="row2">
+  <div class="col-251">
+   Registration No.
+  </div>
+  <div class="col-751">
+    
+  </div>
+</div>
+
+<div class="row2">
+  <div class="col-251">
+    Registration Certificate
+  </div>
+  <div class="col-751">
+    
+    </div>
+    </div>
+
+    <div class="row2">
+  <div class="col-251">
+   Sector of Startup
+  </div>
+  <div class="col-751">
+  
+  </div>
+</div>
+
+<div class="row2">
+  <div class="col-251">
+   Ownership
+  </div>
+  <div class="col-751">
+   
+  </div>
+</div>
+
+<div class="row2">
+  <div class="col-251">
+   Operation Mode
+  </div>
+  <div class="col-751">
+    
+  </div>
+</div>
+
+<div class="row2">
+  <div class="col-251">
+   of Employees
+  </div>
+  <div class="col-751">
+    
+  </div>
+</div>
+
+<div class="row2">
+  <div class="col-251">
+  Contact Number
+  </div>
+  <div class="col-751">
+   
+    </div>
+    </div>
+
+    <div class="row2">
+  <div class="col-251">
+   About Startup
+  </div>
+  <div class="col-751">
+    
+    </div>
+    </div>
+
+<div class="row2">
+  <div class="col-251">
+   Web Address
+  </div>
+  <div class="col-751">
+    
+    </div>
+    </div>
+
+
+
+
+<div class="row2">
+  <div class="col-251">
+Mobile App Link
+  </div>
+  <div class="col-751">
+    
+    </div>
+    </div>
+
+
+  <div class="row2">
+  <div class="col-251">
+  Point Of Contact
+  </div>
+  <div class="col-751">
+   
+    </div>
+    </div>
+
+
+  <div class="row2">
+  <div class="col-251">
+ Mobile No.
+  </div>
+  <div class="col-751">
+    
+    </div>
+    </div>
+
+          </div>):(<EditProfile changeProfile={this.changeProfile}/>)
+             } 
      
       </Paper>
     
@@ -68,3 +214,5 @@ export default function SimplePaper() {
     </div>
   );
 }
+}
+export default withStyles(styles,{theme:true})(UserProfile);
