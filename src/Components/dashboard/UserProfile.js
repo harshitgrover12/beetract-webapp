@@ -205,7 +205,7 @@ Mobile App Link
     </div>
     </div>
 
-          </div>):(<EditProfile changeProfile={this.changeProfile}/>)
+          </div>):(<EditProfile {...this.props}changeProfile={this.changeProfile}/>)
              } 
      
       </Paper>
