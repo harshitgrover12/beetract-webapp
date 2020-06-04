@@ -195,7 +195,7 @@ const items = [
                 >
                     {
                         items.map( (item, index) => {
-                            return <Project carousalType={this.props.carousalType}item={item} key={index}/>
+                            return <Project carousaltype={this.props.carousaltype}item={item} key={index}/>
                         })
                     }
                 </Carousel>

@@ -38,6 +38,7 @@ const filestyle = {
   
 };
 
+
  class ProjectForm extends Component {
 
   constructor(props) {
@@ -47,10 +48,7 @@ const filestyle = {
   }
      
      
-     componentDidMount(){
-         this.props.changecurstatus(true);
-         this.props.changethingtype('bidding');
-     }
+     
     render() {
             const {classes} = this.props;
         return (

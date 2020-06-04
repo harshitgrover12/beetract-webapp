@@ -70,7 +70,7 @@ const handleSubmit=(e)=>{
     let is_job_seeker=false;
     let is_incubator=false;
     
-    if(selectedValue==='Official')
+    if(selectedValue==='Individual')
     {
         is_official=true;
     }
@@ -148,7 +148,7 @@ const handleClick=(event)=>{
             checked={selectedValue === 'Business'}
             control={<Radio />} 
             label="Business"
-            inputProps={{ 'aria-label': 'Business' }}
+            inputprops={{ 'aria-label': 'Business' }}
             labelPlacement="start"
             onChange={handleChange}
             />
@@ -171,7 +171,7 @@ const handleClick=(event)=>{
         value="Startup"
         label="  Startup  "
         name="radio-button-demo"
-        inputProps={{ 'aria-label': 'Startup' }}
+        inputprops={{ 'aria-label': 'Startup' }}
         labelPlacement="start"
       />
             
@@ -189,11 +189,11 @@ const handleClick=(event)=>{
             <FormControlLabel className ={classes.button} 
         checked={selectedValue === 'Individual'}
         onChange={handleChange}
-        value="c"
+        value="Individual"
         label="Individual"
         labelPlacement="start"
         name="radio-button-demo"
-        inputProps={{ 'aria-label': 'Individual' }}
+        inputprops={{ 'aria-label': 'Individual' }}
         control={<Radio />} 
       />
           </Grid>
@@ -213,7 +213,7 @@ const handleClick=(event)=>{
         labelPlacement="start"
         label="Incubator"
         name="radio-button-demo"
-        inputProps={{ 'aria-label': 'Incubator' }}
+        inputprops={{ 'aria-label': 'Incubator' }}
         control={<Radio />} 
       />
           </Grid>

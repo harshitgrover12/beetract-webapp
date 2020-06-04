@@ -2,11 +2,11 @@ import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import {Link as link } from 'react-router-dom';
 import Drawer from '@material-ui/core/Drawer';
 import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import {Link as link} from 'react-router-dom';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
@@ -53,7 +53,7 @@ function Copyright() {
   );
 }
 
-const drawerWidth = 240; 
+const drawerWidth = 280; 
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -161,7 +161,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function Dashboard(props) {
+export default function Dashboard_incubator(props) {
 
   props.changecurstatus(true);
   const classes = useStyles();
@@ -236,88 +236,27 @@ export default function Dashboard(props) {
       <ListItemText primary="Home" />
     </ListItem>
     <Divider/>
-        <List>     <div>
-    <ListItem button>
-      <ListItemIcon>
-        <AccountTreeIcon />
-      </ListItemIcon>
-      <ListItemText primary="All About Startups" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <SpaIcon />
-      </ListItemIcon>
-      <ListItemText primary="Market Research" />
-    </ListItem>
-  </div></List>
-        <Divider />
+      
         <List><div>
-        <ListItem button onClick={(e)=>{
-          e.preventDefault()
-props.changethingtype('bidding');
-
-props.history.push('/postProject');
-        }} >
+        <ListItem button  >
       <ListItemIcon>
         <PostAddIcon />
       </ListItemIcon>
-      <ListItemText primary="Post a Project" />
+      <ListItemText primary="Post an Incubation Offer" />
     </ListItem>
-    <ListItem button onClick={(e)=>{
-      e.preventDefault();
-      props.changethingtype('bidding');
-props.changecarousaltype('bidProject');
-props.history.push('/bidProject') 
-    }}>
+   
+    <ListItem button >
       <ListItemIcon>
         <MonetizationOnIcon />
       </ListItemIcon>
-      <ListItemText primary="Bid on a Project" />
+      <ListItemText primary="Manage Applications" />
     </ListItem>
-     
     
-   <ListItem button onClick={(e)=>{
-     e.preventDefault();  
-    props.history.push('/home');
-    props.changethingtype('assistance');
-}
-   }>
-    <ListItemIcon>
-       <LayersIcon />
-      </ListItemIcon>
-      <ListItemText primary="Access Assistance" />
-    </ListItem>
-    </div></List>
+  </div>
+  </List>
         <Divider />
-        <List>  
-         <div>
-    
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Apply for Incubation" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <PersonPinIcon />
-      </ListItemIcon>
-      <ListItemText primary="Hire Candidates" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <HomeWorkIcon />
-      </ListItemIcon>
-      <ListItemText primary="Acquire a company" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <ShopTwoIcon />
-      </ListItemIcon>
-      <ListItemText primary="Sell Company" />
-    </ListItem>
-    <Divider/>
-  </div></List>
+        
+ 
           <List>     <div>
     <ListItem button onClick={(e)=>{e.preventDefault();
     props.changethingtype('');

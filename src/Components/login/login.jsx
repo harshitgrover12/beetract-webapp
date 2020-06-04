@@ -23,9 +23,15 @@ import axios from 'axios';
     axios.post('https://beetract.herokuapp.com/auth/login/',{
       email:this.state.email,
       password:this.state.password
-    }).then(({data})=>{console.log(data)
-    this.props.history.push('/business')
-    this.props.changecurstatus(true)
+    }).then(({data})=>{
+    this.props.history.push('/home');
+    this.props.changecurstatus(true);
+    if(data.user.is_business)
+    this.props.changeuserrole('business');
+    if(data.user.is_official)
+    this.props.changeuserrole('individual');
+     if(data.user.is_incubator)
+    this.props.changeuserrole('incubator');
     }).catch(error=>alert(error));
        
      

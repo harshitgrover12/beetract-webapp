@@ -19,7 +19,7 @@ class App extends Component {
     return(
       <div> 
        <BrowserRouter>
-       {this.props.history.location.pathname!=='/business/dashboard'?
+       {this.props.history.location.pathname!=='/dashboard'?
          (<Navbar{...this.props}/>):(<div/>)
        }
          <Route exact path='/' render={(props)=><div><Circles{...this.props}  />
@@ -52,6 +52,7 @@ const mapStateToProps = state => {
     carousaltype:state.carousaltype,
     thingtype:state.thingtype,
     userdata:state.userdata,
+    userrole:state.userrole
   };
 };
 
@@ -76,6 +77,10 @@ const mapDispatchToProps = dispatch => {
     changeuserdata:(userdata)=>dispatch({
       type:'DETAILS',
       userdata:userdata
+    }),
+    changeuserrole:(userrole)=>dispatch({
+      type:'ROLE',
+      userrole:userrole
     })
   };
 };

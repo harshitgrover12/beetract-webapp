@@ -1,8 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
+import {Link as link} from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import {Link as link } from 'react-router-dom';
 import Drawer from '@material-ui/core/Drawer';
 import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
@@ -53,7 +53,7 @@ function Copyright() {
   );
 }
 
-const drawerWidth = 240; 
+const drawerWidth = 280; 
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -161,7 +161,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function Dashboard(props) {
+export default function Dashboard_Individual(props) {
 
   props.changecurstatus(true);
   const classes = useStyles();
@@ -252,40 +252,25 @@ export default function Dashboard(props) {
   </div></List>
         <Divider />
         <List><div>
-        <ListItem button onClick={(e)=>{
-          e.preventDefault()
-props.changethingtype('bidding');
-
-props.history.push('/postProject');
-        }} >
+        <ListItem button  >
       <ListItemIcon>
         <PostAddIcon />
       </ListItemIcon>
-      <ListItemText primary="Post a Project" />
+      <ListItemText primary="Mentor a Startup" />
     </ListItem>
-    <ListItem button onClick={(e)=>{
-      e.preventDefault();
-      props.changethingtype('bidding');
-props.changecarousaltype('bidProject');
-props.history.push('/bidProject') 
-    }}>
+    <ListItem button >
       <ListItemIcon>
         <MonetizationOnIcon />
       </ListItemIcon>
-      <ListItemText primary="Bid on a Project" />
+      <ListItemText primary="Domain Assist a StartUp" />
     </ListItem>
      
     
-   <ListItem button onClick={(e)=>{
-     e.preventDefault();  
-    props.history.push('/home');
-    props.changethingtype('assistance');
-}
-   }>
+   <ListItem button>
     <ListItemIcon>
        <LayersIcon />
       </ListItemIcon>
-      <ListItemText primary="Access Assistance" />
+      <ListItemText primary="Acquire a startup " />
     </ListItem>
     </div></List>
         <Divider />
@@ -296,26 +281,10 @@ props.history.push('/bidProject')
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
-      <ListItemText primary="Apply for Incubation" />
+      <ListItemText primary="Seek a job in startup" />
     </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <PersonPinIcon />
-      </ListItemIcon>
-      <ListItemText primary="Hire Candidates" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <HomeWorkIcon />
-      </ListItemIcon>
-      <ListItemText primary="Acquire a company" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <ShopTwoIcon />
-      </ListItemIcon>
-      <ListItemText primary="Sell Company" />
-    </ListItem>
+   
+    
     <Divider/>
   </div></List>
           <List>     <div>

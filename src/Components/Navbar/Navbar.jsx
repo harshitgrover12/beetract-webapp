@@ -9,6 +9,7 @@ import TextField from '@material-ui/core/TextField';
 import './Navbar.css';
 import {connect} from 'react-redux';
 import {compose} from 'redux';
+import { Link } from 'react-router-dom'
 
 
         const styles = theme => ({
@@ -20,18 +21,23 @@ import {compose} from 'redux';
   menuButton: {
     marginRight: theme.spacing(2),
     zIndex:9999,
+    color: 'white',
+    backgroundColor: '#000000',
     
+   
 
     
   },
   menuButton1:{
       marginRight:theme.spacing(2),
+         color: 'white',
+    backgroundColor: '#000000',
   },
    menuButton2: {
-    background: 'black',
-    display: 'inline-block',
-    marginRight: theme.spacing(8),
-    fontSize: 15,
+    
+    marginRight: theme.spacing(2),
+       color: 'white',
+    backgroundColor: '#000000',
 
   },
   toolbar1: {
@@ -87,39 +93,43 @@ class Navbar extends Component {
     e.preventDefault()
     this.props.changecarousaltype('viewBids');
     
-     this.props.history.push('/business/projectBidding/viewProject')
+     this.props.history.push('/viewProject')
   }
   bidProject=(e)=>{
     e.preventDefault();
     this.props.changecarousaltype('bidProject');
     
-    this.props.history.push('/business/projectBidding/bidProject')
+    this.props.history.push('/bidProject')
   }
   projectBidding=(e)=>{
    
-     this.props.history.push('/business/projectBidding');
+     
     this.props.changethingtype('bidding');
    
     
   }
+  postProject=(e)=>{
+    this.props.changethingtype('bidding');
+    this.props.history.push('/postProject');
+  }
   handleDashboard=(e)=>{
-    this.props.history.push('/business/dashboard');
+    this.props.history.push('/dashboard');
   }
   assistance=(e)=>{
     e.preventDefault();
    
-    this.props.history.push('/business/assistance');
+    this.props.history.push('/assistance');
      this.props.changethingtype('assistance');
   }
   seek=(e)=>{
     e.preventDefault();
     this.props.changecarousaltype('seek')
-    this.props.history.push('/business/assistance/seek')
+    this.props.history.push('/assistance/seek')
   }
   assist=(e)=>{
     e.preventDefault();
     this.props.changecarousaltype('assist')
-    this.props.history.push('/business/assistance/assist')
+    this.props.history.push('/assistance/assist')
   }
  
     render(){
@@ -189,21 +199,11 @@ class Navbar extends Component {
               <Button variant="contained"
               edge="start"
               size="medium"
-              className={classes.menuButton}href="/business/aboutStartups">
+              className={classes.menuButton}href="/aboutStartups">
           
             About Startups
               </Button>
-              <div class="dropdown">
-                  <Button variant="contained" edge="start" size="medium" className={classes.menuButton}>
-                  DropDown
-                      <i className="fa fa-caret-down"></i>
-                      </Button>
-                      <div class="dropdown-content">
-                      <a style={{cursor:'pointer'}} onClick={this.projectBidding}>Project Bidding </a>
-                      <a style={{cursor:'pointer'}} onClick={this.assistance}>Assistance</a>
-                      
-                      </div>
-              </div> 
+             
               <Button variant="contained"
               edge="start"
               size="medium"
@@ -212,9 +212,10 @@ class Navbar extends Component {
               About
               </Button>
               <Button variant="contained"
-              edge="start"
+              
               size="medium"
-              className={classes.menuButton}>
+              className={classes.menuButton} component={Link} to="/profile">
+              
           
               Profile
               </Button>
@@ -230,7 +231,7 @@ class Navbar extends Component {
                 <Toolbar className={classes.toolbar1} boxShadow={0}>
                 <StylesProvider injectFirst> 
               {this.props.thingtype==='bidding' ?(<div>
-              <Button variant="contained" edge="start" size="large"  className={classes.menuButton2} href="/business/projectBidding/postProject">
+              <Button variant="contained" edge="start" size="large"  className={classes.menuButton2} onClick={this.postProject}>
                     Post a Project
                 </Button>
 

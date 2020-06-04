@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import Carousel from 'react-material-ui-carousel';
 import autoBind from 'auto-bind';
+import { Link } from 'react-router-dom'
 import {
     FormLabel,
     FormControlLabel,
@@ -66,7 +67,7 @@ function Project(props)
             <Button className="CheckButton1">
                 Details
             </Button>
-            <Button style={{backgroundColor:'black'}}className="CheckButton1"href="/business/projectBidding/bidProject/bidForm">
+            <Button style={{backgroundColor:'black'}}className="CheckButton1"component={Link} to="/bidProject/bidForm">
                 Bid
             </Button>
         </Paper>)}

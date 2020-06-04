@@ -4,6 +4,7 @@ const initState={
     carousaltype:'',
     thingtype:'',
     userdata:{},
+    userrole:'',
 }
 const rootReducer=(state=initState,action)=>{
     if(action.type==='LOGIN')
@@ -41,6 +42,13 @@ const rootReducer=(state=initState,action)=>{
         return{
             ...state,
             userdata:action.userdata,
+        }
+    }
+     if(action.type==='ROLE')
+    {
+        return{
+            ...state,
+            userrole:action.userrole,
         }
     }
     return state;

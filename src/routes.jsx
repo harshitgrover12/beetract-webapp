@@ -6,7 +6,7 @@ import Navbar from "./Components/Navbar/Navbar.jsx";
 import {BrowserRouter,Route,Link} from 'react-router-dom';
 import Assistance from './Components/Assistance/Assistance';
 import AboutStartups from './Components/aboutStartups/aboutStartups';
-import Business from './Components/Business/Business';
+import home from './Components/home/home';
 import ProjectForm from './Components/ProjectPost/ProjectForm';
 import ViewForm from './Components/ViewForm/ViewForm';
 import ProjectBid from './Components/ProjectPost/ProjectBid';
@@ -17,8 +17,8 @@ import Seek from './Components/Assistance/Seek';
 import Assist from './Components/Assistance/Assist';
 import Dashboard from './Components/dashboard/Dashboard';
 import UserProfile from './Components/dashboard/UserProfile'
-
-
+import Dashboard_individual from './Components/dashboard/Dashboard_Individual'
+import Dashboard_incubator from './Components/dashboard/Dashboard_incubator'
 
 
 class Routes extends Component{
@@ -59,28 +59,42 @@ class Routes extends Component{
 
        
     <div  id="lpg" >
-    {this.props.history.location.pathname!=='/business/dashboard/profile'?
+    {this.props.history.location.pathname!=='/dashboard'?
       (<ParticleBackground  />):(<div/>)
     }
       </div>
-      
+    
+      <Route  path='/roles' render={(props)=><Roles{...this.props}/>}/>
+ 
+      {this.props.userrole==='business'?(<div>
+        <Route path='/home' render={(props)=><home{...this.props}/>}/>
+     <Route path='/dashboard' render={(props)=><Dashboard{...this.props} />}/>
       <Route  path='/aboutStartups' render={(props)=><AboutStartups{...this.props} />}/>
-     <Route exact path='/business/dashboard' render={(props)=><Dashboard{...this.props} />}/>
-      <Route  path='/business/aboutStartups' render={(props)=><AboutStartups{...this.props} />}/>
-       <Route  path='/business' render={(props)=><Business{...this.props} />}/>
-       <Route  path='/business/projectBidding/postProject'render={(props)=><div><ProjectForm{...this.props}/>    
-       </div>}/>
-       <Route path='/business/dashboard/profile' render={(props)=><UserProfile{...this.props}/>}/>
-       <Route  path='/roles' render={(props)=><Roles{...this.props}/>}/>
-       <Route  path='/business/projectBidding' render={(props)=><ProjectBidding{...this.props}/>}/>
-       <Route  path='/business/assistance' render={(props)=><Assistance{...this.props}/>}/>
-      
-        <Route  path='/business/assistance/seek' render={(props)=><Seek{...this.props}/>}/>
-        <Route  path='/business/assistance/assist' render={(props)=><Assist{...this.props}/>}/>
-       <Route  path='/business/projectBidding/viewProject' render={(props)=><ViewForm{...this.props}/>}/>
-        <Route path='/business/projectBidding/bidProject' render={(props)=><MyProjectsExample{...this.props}/>}/>
-        <Route  path='/business/projectBidding/bidProject/bidForm' render={(props)=><ProjectBid{...this.props}/>}/>
-       <Route  path='/signIn' render={(props)=>
+      <Route   path='/postProject'render={(props)=><ProjectForm{...this.props}/>     }/>
+      <Route path='/profile' render={(props)=><UserProfile{...this.props}/>}/>
+      <Route  exact path='/assistance/seek' render={(props)=><Seek{...this.props}/>}/>
+      <Route  exact path='/assistance/assist' render={(props)=><Assist{...this.props}/>}/>
+       <Route  exact path='/viewProject' render={(props)=><ViewForm{...this.props}/>}/>
+        <Route exact path='/bidProject' render={(props)=><MyProjectsExample{...this.props}/>}/>
+        <Route  exact path='/bidProject/bidForm' render={(props)=><ProjectBid{...this.props}/>}/>
+        </div>):(<div/>)
+      }{
+        this.props.userrole==='individual'?(<div>
+        <Route path='/home' render={(props)=><home{...this.props}/>}/>
+        <Route path='/dashboard' render={(props)=><Dashboard_individual{...this.props}/>}/>
+        </div>
+        ):(<div/>)
+
+      }
+      {
+        this.props.userrole==='incubator'?(<div>
+        <Route path='/home' render={(props)=><home{...this.props}/>}/>
+        <Route path='/dashboard' render={(props)=><Dashboard_incubator{...this.props}/>}/>
+        </div>
+        ):(<div/>)
+
+      }
+       <Route exact path='/signIn' render={(props)=>
        <div className="App">
         <div className="login">
           <div className="container">
