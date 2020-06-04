@@ -214,7 +214,7 @@ class Navbar extends Component {
               <Button variant="contained"
               
               size="medium"
-              className={classes.menuButton} component={Link} to="/profile">
+              className={classes.menuButton} onClick={()=>this.props.history.push('/profile')}>
               
           
               Profile
