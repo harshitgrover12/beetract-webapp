@@ -15,11 +15,11 @@ class Circles extends Component{
             <div >   
             <div class="container" >
             
-  <div class="row" style={{zIndex:'3'}}>  
+  <div class="row" >  
         <a href="/aboutStartups">
-        <svg width="280" height="240">
-            <circle cx="120" cy="120" r="120"  fill="#262626" />
-                <text x="120" y="120" text-anchor="middle"fill="white" style={{fontSize:25}}>
+        <svg width="300" height="290">
+            <circle cx="130" cy="150" r="130"  fill="#262626" />
+                <text x="130" y="150" text-anchor="middle"fill="white" style={{fontSize:25}}>
                  All About StartUps
                 </text>
         </svg></a>
@@ -27,15 +27,15 @@ class Circles extends Component{
     </div>
     <div class="row">   
        
-     <svg width="280" height="240"  >
+     <svg width="350" height="240"  >
             <circle cx="120" cy="120" r="120"  fill="#262626" />
-                <text x="120" y="120" text-anchor="middle"style={{fontSize:25}} fill="white" >
+                <text x="120" y="120" text-anchor="middle"style={{fontSize:25,marginLeft:'70px'}} fill="white" >
                 Incubators
                 </text>
         </svg>
-       <svg width="280" height="240">
-            <circle cx="120" cy="120" r="120"  fill="#CC0099" />
-                <text x="120" y="120" text-anchor="middle"fill="white"style={{fontSize:25}} >
+       <svg width="350" height="240">
+            <circle cx="190" cy="120" r="120"  fill="#CC0099" />
+                <text x="190" y="120" text-anchor="middle"fill="white"style={{fontSize:25}} >
                 Market Research
                 </text>
         </svg>
