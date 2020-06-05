@@ -19,7 +19,7 @@ import Dashboard from './Components/dashboard/Dashboard';
 import UserProfile from './Components/dashboard/UserProfile'
 import Dashboard_individual from './Components/dashboard/Dashboard_Individual'
 import Dashboard_incubator from './Components/dashboard/Dashboard_incubator'
-
+import ApplyForm from './Components/Incubators/ApplyForm';
 
 class Routes extends Component{
     constructor(props){
@@ -70,6 +70,7 @@ class Routes extends Component{
         <Route path='/home' render={(props)=><home{...this.props}/>}/>
      <Route path='/dashboard' render={(props)=><Dashboard{...this.props} />}/>
       <Route  path='/aboutStartups' render={(props)=><AboutStartups{...this.props} />}/>
+      <Route  path='/applyIncubation' render={(props)=><ApplyForm{...this.props} />}/>
       <Route   path='/postProject'render={(props)=><ProjectForm{...this.props}/>     }/>
       <Route path='/profile' render={(props)=><UserProfile{...this.props}/>}/>
       <Route  exact path='/assistance/seek' render={(props)=><Seek{...this.props}/>}/>

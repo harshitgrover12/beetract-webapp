@@ -237,7 +237,7 @@ export default function Dashboard(props) {
     </ListItem>
     <Divider/>
         <List>     <div>
-    <ListItem button>
+    <ListItem button component={link} to="/aboutStartUps">
       <ListItemIcon>
         <AccountTreeIcon />
       </ListItemIcon>
@@ -292,7 +292,7 @@ props.history.push('/bidProject')
         <List>  
          <div>
     
-    <ListItem button>
+    <ListItem button component={link} to="/applyIncubation">
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
